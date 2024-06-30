@@ -152,5 +152,19 @@ This vulnerability affects multiple versions of Windows:
 
 > [`AutoBlue-MS17-010`](https://github.com/3ndG4me/AutoBlue-MS17-010) - exploit code or a collection of scripts that used to exploit the vulnerability manually
 
+### RDP <a href="#rdp" id="rdp"></a>
+
+🗒️ [**RDP**](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/understanding-remote-desktop-protocol) (**R**emote **D**esktop **P**rotocol) - Microsoft proprietary GUI remote access protocol used to remotely connect with Windows.
+
+* Ports: **`3389`** (TCP) or any other port
+* _User Authentication_ - `username` & `password`
+* An RDP Client is used to connect to the target
+
+
+
+
+
+
+
 
 

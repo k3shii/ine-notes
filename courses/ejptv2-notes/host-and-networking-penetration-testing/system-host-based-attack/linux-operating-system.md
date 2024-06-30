@@ -1,6 +1,6 @@
 ---
 cover: ../../../../.gitbook/assets/Top-5-Linux-distros-in-2023.webp
-coverY: 57
+coverY: 36
 layout:
   cover:
     visible: true
@@ -17,5 +17,5 @@ layout:
     visible: true
 ---
 
-# Linux Operating System
+# 🐧 Linux Operating System
 
