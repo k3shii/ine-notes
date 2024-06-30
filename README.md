@@ -30,13 +30,14 @@ eLearnSecurity Junior Penetration Tester (eJPT) - a practical certification on p
 
 ### Course duration & Topics <a href="#course-duration-and-topics" id="course-duration-and-topics"></a>
 
-\~ 145 hours (_`~56h of videos`_)
+\~ 156 hours 17 mins
 
-Activities: **4** sections , **12** courses , **229** videos, **154** quizzes, **120** labs
+Activities: **4** sections , **12** courses , **239** videos, **164** quizzes, **121** labs
 
-* [**Assessment Methodologies & Auditing**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies) \~ 27 hours (`11h` of videos)
-* [**Host & Network Penetration Testing**](https://blog.syselement.com/ine/courses/ejpt/hostnetwork-penetration-testing) \~ 108 hours (`42h` of videos)
-* [**Web Application Penetration Testing**](https://blog.syselement.com/ine/courses/ejpt/webapp-penetration-testing) \~ 10 hours (`3h` of videos)
+* [**Assessment Methodologies & Auditing**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies) \~ 31 hours 30 mins
+* Host & Networking Auditing \~ 2 hours 14 mins
+* [**Host & Network Penetration Testing**](https://blog.syselement.com/ine/courses/ejpt/hostnetwork-penetration-testing) \~ 113 hours 22 mins
+* [**Web Application Penetration Testing**](https://blog.syselement.com/ine/courses/ejpt/webapp-penetration-testing) \~ 9 hours 5 mins
 
 
 

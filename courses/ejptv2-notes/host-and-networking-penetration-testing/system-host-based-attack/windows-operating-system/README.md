@@ -17,7 +17,7 @@ layout:
     visible: true
 ---
 
-# Windows Operating System
+# 💻 Windows Operating System
 
 ## Windows Vulnerabilities
 
@@ -112,9 +112,45 @@ cadaver [OPTIONS] http://hostname[:port]/path
 3. The client sends the encrypted string to the server
 4. The server checks the actual string value of that users matches the client's one, and grant access. It doesn't match access is denied
 
+#### **PsExec**
 
+> [**`psexec`**](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec) - a light-weight telnet-replacement that lets you execute processes on remote systems, complete with full interactivity for console applications, using any user's credentials
 
+* PsExec authentication is performed via SMB
+* Run arbitrary commands or a remote command prompt
+* Commands are sent via **`CMD`** (without a GUI like `RDP`)
+* Legitimate user account and passwords/hashes are necessary to gain Windows target access
 
+#### **PsExec Exploitation**
+
+1. Leverage various techniques, `e.g.` **SMB login brute-force** attack.
+2. Narrow down the attack to only common Win user accounts, `e.g.` **Administrator**.
+3. Use the obtained credentials to authenticate via **`PsExec`** and execute system commands or get a reverse shell.
+
+#### MS17-010 Eternal Blue
+
+> [`EternalBlue (MS17-010/CVE-2017-0144)`](https://learn.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010) - A collection of Windows vulnerabilities and exploits that allow remote code execution and system access.
+
+* Developed by the NSA and Leaked by the Shadow Brokers in 2017.
+* Exploits a vulnerability in the Windows `SMBv1` protocol by sending specially crafted packets to execute arbitrary commands.
+* Used in the `WannaCry` ransomware attack on June 27, 2017.
+* Microsoft released a patch in March 2017, but many systems remain unpatched.
+* Contains auxiliary and exploit modules to check for and exploit vulnerable systems, providing a privileged `meterpreter` session.
+* Possible with publicly available exploit code.
+
+This vulnerability affects multiple versions of Windows:
+
+* Windows Vista
+* Windows 7
+* Windows Server 2008
+* Windows 8.1
+* Windows Server 2012
+* Windows 10
+* Windows Server 2016
+
+#### Tools
+
+> [`AutoBlue-MS17-010`](https://github.com/3ndG4me/AutoBlue-MS17-010) - exploit code or a collection of scripts that used to exploit the vulnerability manually
 
 
 
