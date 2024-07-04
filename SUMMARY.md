@@ -48,4 +48,5 @@
         * [🔬IIS - WebDAV](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/iis-webdav.md)
         * [🔬SMB](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/smb.md)
         * [🔬RDP](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/rdp.md)
+        * [🔬WinRM](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/winrm.md)
       * [🐧 Linux Operating System](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system.md)

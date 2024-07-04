@@ -160,20 +160,42 @@ This vulnerability affects multiple versions of Windows:
 * _User Authentication_ - `username` & `password`
 * An RDP Client is used to connect to the target
 
-#### BlueKeep
+#### BlueKeep Exploitation
 
-> BlueKeep (CVE-2019-0708) - RDP vulnerability in Windows that could potentially allow attackers to remotely execute arbitrary code and gain access to Windows system and consequently the network that the target system is a part of.
+> [BlueKeep (CVE-2019-0708)](https://nvd.nist.gov/vuln/detail/cve-2019-0708) - RDP vulnerability in Windows that could potentially allow attackers to remotely execute arbitrary code and gain access to Windows system and consequently the network that the target system is a part of.
 
 * _The attacker can remotely execute arbitrary code by gaining access to a chunk of kernel memory, without authentication._
 * BlueKeep **PoC**'s (**P**roof **o**f **C**oncepts) and exploits could be **malicious** in nature, use only verified exploit code and modules.
 
+This vulnerability affects multiple versions of Windows:
 
+* XP
+* Vista
+* Windows 7
+* Windows Server 2008 & R2
 
+### WinRM <a href="#winrm" id="winrm"></a>
 
+🗒️ [**WinRM**](https://learn.microsoft.com/en-us/windows/win32/winrm/portal) (**W**indows **R**emote **M**anagement **P**rotocol) - a protocol used to facilitate remote access with Windows systems over HTTP(S).
 
+* Ports: `5986` - `5986 (HTTPS)` (TCP)
+* Not configured by default
+* Used by system administrator to:
+  * remotely access, interact and execute commands on Windows hosts on a LAN
+  * remotely manage and configure Windows systems
+* Various form of authentication are used for access control and security
 
+#### **WinRM Exploitation**
 
+> [**`crackmapexec`**](https://www.kali.org/tools/crackmapexec/) - a python script, _a swiss army knife for pentesting Windows/Active Directory environments. From enumerating logged on users and spidering SMB shares to executing psexec style attacks, auto-injecting Mimikatz/Shellcode/DLL’s into memory using Powershell, dumping the NTDS.dit and more._
+>
+> Can be utilized for brute-force WinRM to find legitimate credentials.
 
+<figure><img src="../../../../../.gitbook/assets/image (148).png" alt=""><figcaption></figcaption></figure>
+
+> [**`evil-winrm`**](https://www.kali.org/tools/evil-winrm/) - a Ruby script used to obtain a command shell session on a target system
+
+<figure><img src="../../../../../.gitbook/assets/image (147).png" alt=""><figcaption></figcaption></figure>
 
 
 
