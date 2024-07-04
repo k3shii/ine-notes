@@ -160,6 +160,15 @@ This vulnerability affects multiple versions of Windows:
 * _User Authentication_ - `username` & `password`
 * An RDP Client is used to connect to the target
 
+#### BlueKeep
+
+> BlueKeep (CVE-2019-0708) - RDP vulnerability in Windows that could potentially allow attackers to remotely execute arbitrary code and gain access to Windows system and consequently the network that the target system is a part of.
+
+* _The attacker can remotely execute arbitrary code by gaining access to a chunk of kernel memory, without authentication._
+* BlueKeep **PoC**'s (**P**roof **o**f **C**oncepts) and exploits could be **malicious** in nature, use only verified exploit code and modules.
+
+
+
 
 
 

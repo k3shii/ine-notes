@@ -122,7 +122,9 @@ xfreerdp  /u:Administrator /p:qwertyuiop /v:10.0.17.61:3333
 
 </details>
 
+***
 
+## Lab 2 (Blue Keep)
 
 
 
