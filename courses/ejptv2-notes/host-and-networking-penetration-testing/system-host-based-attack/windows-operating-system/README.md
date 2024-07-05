@@ -79,7 +79,7 @@ Windows has various standard native services and protocols configured or not on 
 davtest -url <url> [options]
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>davtest</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>davtest</p></figcaption></figure>
 
 > [**`cadaver`**](https://www.kali.org/tools/cadaver/) - supports file _upload, download, on-screen display, in-place editing, namespace operations (move/copy), collection creation and deletion, property manipulation, and resource locking_. Pre-installed on Kali Linux and Parrot OS.
 
@@ -87,7 +87,7 @@ davtest -url <url> [options]
 cadaver [OPTIONS] http://hostname[:port]/path
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>cadaver</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>cadaver</p></figcaption></figure>
 
 ### SMB <a href="#smb" id="smb"></a>
 
@@ -105,7 +105,7 @@ cadaver [OPTIONS] http://hostname[:port]/path
 
 #### **SMB Authentication**
 
-<figure><img src="../../../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>SMB Authentication</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>SMB Authentication</p></figcaption></figure>
 
 1. Auth request from the client to the server
 2. The server request the client to encrypt string with user's hash
@@ -196,6 +196,95 @@ This vulnerability affects multiple versions of Windows:
 > [**`evil-winrm`**](https://www.kali.org/tools/evil-winrm/) - a Ruby script used to obtain a command shell session on a target system
 
 <figure><img src="../../../../../.gitbook/assets/image (147).png" alt=""><figcaption></figcaption></figure>
+
+***
+
+## Windows Privileges Escalation
+
+🗒️ **Privilege Escalation** (_privesc_) is the process of exploiting vulnerabilities to escalate/elevate privileges from one user to a user with administrative or root access.
+
+* it is an important part of the Penetration testing process, specially after gaining initial foothold
+* the better the privesc is, the better the Pentest will be
+
+### Win Kernel Exploits <a href="#win-kernel-exploits" id="win-kernel-exploits"></a>
+
+{% hint style="danger" %}
+Targeting Kernel space memory and apps can cause system crashes, data loss, etc
+{% endhint %}
+
+🗒️ The [kernel](https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/windows-kernel-mode-kernel-library) of an operating system is a computer program that implements the core functionality of an OS. and has control over every system resource and hardware.
+
+The kernel facilitates the communication between hardware and software layers.
+
+[Windows NT](https://en.wikipedia.org/wiki/Windows\_NT) is the Microsoft Windows kernel and consists of two modes of operation
+
+* User Mode - end-user programs with limited access to system resources
+* Kernel Mode - unlimited access to system resources and functionality
+
+An attacker can get shell code execution with the highest privileges by targeting vulnerabilities in the Windows kernel.
+
+The **Windows Kernel Exploitation** process will be different, depending on the attacked system. It consists of:
+
+1. Identifying kernel vulnerabilities (via automation scripts)
+2. Downloading, compiling and transferring kernel exploits onto the target system, based on the target Windows version
+
+> [**Windows-Exploit-Suggester**](https://github.com/AonCyberLabs/Windows-Exploit-Suggester) - a python tool that _compares a targets patch levels against the Microsoft vulnerability database in order to detect potential missing patches on the target. It notifies the user if there are public exploits and Metasploit modules available for the missing bulletins._
+
+```bash
+./windows-exploit-suggester.py --database YYYY-MM-DD-mssb.xlsx --systeminfo win7sp1-systeminfo.txt
+```
+
+> [**windows-kernel-exploits**](https://github.com/SecWiki/windows-kernel-exploits) - a Github collection of Windows Kernel Exploits sorted by CVE
+
+<figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### UAC Bypass <a href="#uac-bypass" id="uac-bypass"></a>
+
+🗒️ [**UAC**](https://learn.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-overview) (**U**ser **A**ccount **C**ontrol) - a Windows security feature used to prevent unauthorized changes to the operating system. Exception of cases when an administrator has deliberately granted administrator-level access to the system, _UAC ensures that programs and processes always operate in the security context of a **non-administrator account**_.
+
+* It requires approval from a user that is part of the administrators group
+* On modern versions of Windows, since Win Vista
+* A **consent form** appears if the user is already a local administrator and he opens an app with `Run as administrator`
+* A standard account instead, will be prompted with a **credential prompt**, to enter an administrator's credentials
+* Depending on the type of access to the Windows system, **attacks can bypass UAC**, in order to execute malicious programs.
+  * A **local administrators group** user account is necessary
+
+UAC has _integrity levels_ ranging from Low to High.
+
+* The bypass tools depend on the Windows release and the UAC integrity level.
+
+<figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>default integrity level</p></figcaption></figure>
+
+{% hint style="info" %}
+It is hard to bypass the UAC when the integrity level is high
+{% endhint %}
+
+<figure><img src="../../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+### Access Token Impersonation <a href="#access-token-impersonation" id="access-token-impersonation"></a>
+
+🗒️ [**Access Tokens**](https://learn.microsoft.com/en-us/windows/win32/secauthz/access-tokens) - objects that describe the security context of a process or a thread. A token includes the identity and privileges of the user account associated with the process.
+
+* Created and managed by the **LSASS** (**L**ocal **S**ecurity **A**uthority **S**ubsystem **S**ervice)
+* Generated by the `winlogon.exe` process at every user successful log on
+* Every process executed by this user, has a copy of this **access token** (that is attached to the `userinit.exe` process)
+
+**Security levels** are used to determine the token assigned privileges:
+
+* `Impersonate-level` - non-interactive login on Windows (services, domain logons)
+  * _can be used to impersonate a token **on the local system**_
+* `Delegate-level` - interactive login on Windows (traditional login, RDP)
+  * _can be used to impersonate a token **on any system**_ ❗
+
+**Windows Privileges** determine what the user can or can't do.
+
+For a successful **impersonation attack**, the following privileges are required:
+
+* `SeAssignPrimaryToken` - allows a user to impersonate tokens
+* `SeCreateToken` - allows a user to create an arbitrary token with administrative privileges
+* `SeImpersonatePrivilege` - allows a user to impersonate a token, creating a process under the security context of another (privileged) user
+
+> **`incognito`** meterpreter module - allows to list available tokens and to impersonate user tokens after exploitation
 
 
 

@@ -49,4 +49,6 @@
         * [🔬SMB](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/smb.md)
         * [🔬RDP](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/rdp.md)
         * [🔬WinRM](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/winrm.md)
+        * [🔬Windows Kernel Privileges](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/windows-kernel-privileges.md)
+        * [🔬UAC Bypass](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/uac-bypass.md)
       * [🐧 Linux Operating System](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system.md)
