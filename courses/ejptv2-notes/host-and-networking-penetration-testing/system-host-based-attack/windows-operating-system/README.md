@@ -79,7 +79,7 @@ Windows has various standard native services and protocols configured or not on 
 davtest -url <url> [options]
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>davtest</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption><p>davtest</p></figcaption></figure>
 
 > [**`cadaver`**](https://www.kali.org/tools/cadaver/) - supports file _upload, download, on-screen display, in-place editing, namespace operations (move/copy), collection creation and deletion, property manipulation, and resource locking_. Pre-installed on Kali Linux and Parrot OS.
 
@@ -87,7 +87,7 @@ davtest -url <url> [options]
 cadaver [OPTIONS] http://hostname[:port]/path
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>cadaver</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption><p>cadaver</p></figcaption></figure>
 
 ### SMB <a href="#smb" id="smb"></a>
 
@@ -105,7 +105,7 @@ cadaver [OPTIONS] http://hostname[:port]/path
 
 #### **SMB Authentication**
 
-<figure><img src="../../../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>SMB Authentication</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption><p>SMB Authentication</p></figcaption></figure>
 
 1. Auth request from the client to the server
 2. The server request the client to encrypt string with user's hash
@@ -236,7 +236,7 @@ The **Windows Kernel Exploitation** process will be different, depending on the 
 
 > [**windows-kernel-exploits**](https://github.com/SecWiki/windows-kernel-exploits) - a Github collection of Windows Kernel Exploits sorted by CVE
 
-<figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 ### UAC Bypass <a href="#uac-bypass" id="uac-bypass"></a>
 
@@ -253,13 +253,13 @@ UAC has _integrity levels_ ranging from Low to High.
 
 * The bypass tools depend on the Windows release and the UAC integrity level.
 
-<figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>default integrity level</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>default integrity level</p></figcaption></figure>
 
 {% hint style="info" %}
 It is hard to bypass the UAC when the integrity level is high
 {% endhint %}
 
-<figure><img src="../../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Access Token Impersonation <a href="#access-token-impersonation" id="access-token-impersonation"></a>
 
@@ -285,6 +285,71 @@ For a successful **impersonation attack**, the following privileges are required
 * `SeImpersonatePrivilege` - allows a user to impersonate a token, creating a process under the security context of another (privileged) user
 
 > **`incognito`** meterpreter module - allows to list available tokens and to impersonate user tokens after exploitation
+
+***
+
+## File System - Alternate Data Streams <a href="#file-system-alternate-data-streams" id="file-system-alternate-data-streams"></a>
+
+🗒️ [**ADS**](https://www.malwarebytes.com/blog/news/2015/07/introduction-to-alternate-data-streams) (**A**lternate **D**ata **S**treams) are a _file attribute only found on the `NTFS` file system_ that allow files to contain more than one stream of data. They were originally designed to provide compatibility with files in the MacOS file system and have been around since Windows NTFS was introduced.
+
+* Any file created have 2 different streams:
+  * **data stream** - contains the data of the file
+  * **resource stream** - contains the `metadata` of the file (data of the data)
+* With ADS, _malicious code can be hidden in legitimate files in order to evade detection_ by basic signature Antiviruses
+  * the payload is stored in the metadata of the file.
+
+***
+
+## Windows Credential Dumping <a href="#windows-credential-dumping" id="windows-credential-dumping"></a>
+
+🗒️ [**SAM**](https://www.windows-active-directory.com/windows-security-account-manager.html) (**S**ecurity **A**ccounts **M**anager) is a database file stored within `C:\Windows\System32\config`. It is used to _authenticate local and remote users and uses cryptographic measures to prevent unauthenticated users from accessing the system_. On a Domain Controller, it simply stores passwords hashes in `HKEY_LOCAL_MACHINE\SAM`.
+
+* All the hashed user account passwords are stored in the SAM database
+* SAM db file cannot be copied while the O.S. is running
+* SAM db is encrypted with a `SysKey`
+
+🗒️ _**Hashing**_ - the process of transforming any given piece of data into another value, using a **hash function** to generate the new value according to a algorithm.
+
+* the result is called **hash/hash value**
+
+Storing passwords locally is a big security risk, specially if stored unencrypted and in _clear-text_ strings.
+
+* **`LM`** and **`NTLM`** are two types of hashes, utilized in versions up to Windows Server 2003
+* **`NTLM`** only is used from Windows Vista onwards
+
+🗒️ [**LSA**](https://learn.microsoft.com/en-us/windows/win32/secauthn/lsa-authentication) (**L**ocal **S**ecurity **A**uthority) - the central component of the Windows security subsystem, responsible for enforcing the security policy of the system, `e.g.` authentication, credentials verification, etc.
+
+The Windows NT Kernel keeps the SAM database file locked.
+
+* An attacker utilize _in-memory_ attack techniques and hash dumping tools to interact with the LSASS process
+
+❗ _Elevated privileges are required for LSASS process interaction._
+
+### Password Hashes <a href="#password-hashes" id="password-hashes"></a>
+
+🗒️ **`LM`** - default hashing algorithm implemented in Windows prior to NT4.0
+
+* outdated and weak protocol, easily crackable
+* disabled by default since Windows Vista/Server 2008
+
+🗒️ **`NTLM`** (`NTHash`) - a collection of authentication protocols and the currently used algorithm for _storing passwords on modern Windows systems_.
+
+* Algorithm - the password is encrypted using the **`MD4`** hashing algorithm and the original password is disposed of
+  * No split of the hash
+  * It is case sensitive
+  * Allows symbols and unicode chars
+  * NTLMv1, NTLMv2 - _challenge response protocols used for authentication in Windows environments_
+* NTLM (NT) hashes do not have password salts - _**can be cracked through a brute-force / dictionary attacks**_.
+
+
+
+
+
+
+
+
+
+
 
 
 

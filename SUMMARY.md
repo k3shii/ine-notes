@@ -51,4 +51,7 @@
         * [🔬WinRM](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/winrm.md)
         * [🔬Windows Kernel Privileges](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/windows-kernel-privileges.md)
         * [🔬UAC Bypass](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/uac-bypass.md)
+        * [🔬Access Token](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/access-token.md)
+        * [🔬Alternate Data Stream](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/alternate-data-stream.md)
+        * [🔬Windows Credentials Dumping](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/windows-credentials-dumping.md)
       * [🐧 Linux Operating System](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system.md)

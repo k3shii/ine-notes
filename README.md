@@ -87,4 +87,8 @@ Activities: **4** sections , **12** courses , **239** videos, **164** quizzes, *
 >
 > 📖 Read the [Lab Guidelines](https://media.graphassets.com/26hoOMeZQDyu7QJQlvaJ)
 
+{% hint style="info" %}
+Reference notes from [`syselement`](https://blog.syselement.com/ine/courses/ejpt)&#x20;
+{% endhint %}
+
 ***
