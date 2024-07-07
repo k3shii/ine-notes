@@ -150,13 +150,9 @@ type flag.txt
 
 <figure><img src="../../../../../.gitbook/assets/image (133).png" alt=""><figcaption></figcaption></figure>
 
-<details>
-
-<summary>Flag</summary>
-
-`e0da81a9cd42b261bc9b90d15f780433`
-
-</details>
+{% hint style="success" %}
+Flag: `e0da81a9cd42b261bc9b90d15f780433`
+{% endhint %}
 
 ***
 

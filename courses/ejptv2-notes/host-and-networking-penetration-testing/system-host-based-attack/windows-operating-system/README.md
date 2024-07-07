@@ -79,7 +79,7 @@ Windows has various standard native services and protocols configured or not on 
 davtest -url <url> [options]
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption><p>davtest</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption><p>davtest</p></figcaption></figure>
 
 > [**`cadaver`**](https://www.kali.org/tools/cadaver/) - supports file _upload, download, on-screen display, in-place editing, namespace operations (move/copy), collection creation and deletion, property manipulation, and resource locking_. Pre-installed on Kali Linux and Parrot OS.
 
@@ -87,7 +87,7 @@ davtest -url <url> [options]
 cadaver [OPTIONS] http://hostname[:port]/path
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption><p>cadaver</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt=""><figcaption><p>cadaver</p></figcaption></figure>
 
 ### SMB <a href="#smb" id="smb"></a>
 
@@ -105,7 +105,7 @@ cadaver [OPTIONS] http://hostname[:port]/path
 
 #### **SMB Authentication**
 
-<figure><img src="../../../../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption><p>SMB Authentication</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption><p>SMB Authentication</p></figcaption></figure>
 
 1. Auth request from the client to the server
 2. The server request the client to encrypt string with user's hash
@@ -253,13 +253,13 @@ UAC has _integrity levels_ ranging from Low to High.
 
 * The bypass tools depend on the Windows release and the UAC integrity level.
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>default integrity level</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>default integrity level</p></figcaption></figure>
 
 {% hint style="info" %}
 It is hard to bypass the UAC when the integrity level is high
 {% endhint %}
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Access Token Impersonation <a href="#access-token-impersonation" id="access-token-impersonation"></a>
 
@@ -341,9 +341,30 @@ The Windows NT Kernel keeps the SAM database file locked.
   * NTLMv1, NTLMv2 - _challenge response protocols used for authentication in Windows environments_
 * NTLM (NT) hashes do not have password salts - _**can be cracked through a brute-force / dictionary attacks**_.
 
+### Passwords Configuration Files <a href="#passwords-configuration-files" id="passwords-configuration-files"></a>
 
+Windows configuration files can contain stored passwords, `e.g.` in the _Unattended Windows Setup_ utility, used to mass deploy Windows on systems.
 
+* The configuration file can contain specific configurations and user account credentials
+* An attacker can find the configuration file left on the target after installation
 
+The utility typically utilizes those [files](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/update-windows-settings-and-scripts-create-your-own-answer-file-sxs?view=windows-11):
+
+`C:\Windows\Panther\Unattend.xml`
+
+`C:\Windows\Panther\Autounattend.xml`
+
+* The stored passwords might be encoded in **`base64`** (easily decodable).
+
+### Dumping Hashes with Mimikatz <a href="#dumping-hashes-with-mimikatz" id="dumping-hashes-with-mimikatz"></a>
+
+> [**Mimikatz**](https://www.kali.org/tools/mimikatz/) - a tool that allows the extraction of clear-text passwords, hashes, PIN code and Kerberos tickets from memory.
+>
+> * _perform pass-the-hash, pass-the-ticket attacks, or build Golden tickets_
+> * extract hashes from the `lsass.exe` process memory
+> * **requires elevated privileges** (Administrator/SYSTEM)
+> * pre-packet on Kali Linux and Parrot OS
+> * **`Kiwi`** - `meterpreter` extension for hashes dumping from memory
 
 
 

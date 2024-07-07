@@ -92,13 +92,9 @@ msf5 exploit(windows/winrm/winrm_script_exec) > exploit
 
 <figure><img src="../../../../../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
 
-<details>
-
-<summary>Flag</summary>
-
-`3c716f95616eec677a7078f92657a230`
-
-</details>
+{% hint style="success" %}
+Flag: `3c716f95616eec677a7078f92657a230`
+{% endhint %}
 
 
 

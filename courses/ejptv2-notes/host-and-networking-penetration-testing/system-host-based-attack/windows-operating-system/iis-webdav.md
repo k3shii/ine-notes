@@ -62,7 +62,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 21.14 seconds
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Perform `http-enum` nmap script to gain more information onto the web directory.
 
@@ -90,9 +90,9 @@ Nmap done: 1 IP address (1 host up) scanned in 13.09 seconds
 **401 Unauthorized** which means authentication has been enabled on this WebDAV server.
 {% endhint %}
 
-<figure><img src="../../../../../.gitbook/assets/image (12) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (12) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (13) (1) (1) (1).png" alt=""><figcaption><p>Authentication Required</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (13) (1) (1) (1) (1).png" alt=""><figcaption><p>Authentication Required</p></figcaption></figure>
 
 ### hydra
 
@@ -115,11 +115,11 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-06-29 15:40:
 1 of 1 target completed, 0 valid password found
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (14) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (14) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (16) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (17) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (17) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### davtest
 
@@ -256,13 +256,9 @@ Progress: [=============================>] 100.0% of 1362 bytes succeeded.
 
 <figure><img src="../../../../../.gitbook/assets/image (23) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<details>
-
-<summary>Flag</summary>
-
-`0cc175b9c0f1b6a831c399e269772661`
-
-</details>
+{% hint style="success" %}
+Flag: `0cc175b9c0f1b6a831c399e269772661`
+{% endhint %}
 
 ***
 
@@ -329,7 +325,7 @@ Uploading shell.asp to `/webdav/shell.asp':
 Progress: [=============================>] 100.0% of 354 bytes succeeded.
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Before executing the `shell.asp`, _setup a **listener**/**handler** that will receive the reverse connection from the target and send the stage that provides with a `meterpreter` session when executed_.
 
@@ -352,12 +348,12 @@ msf6 exploit(multi/handler) > run
 
 * The listener (reverse TCP handler) starts listening and waits for a connection from the actual `shell.asp` payload
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Open the `http://10.4.18.218/webdav` link in the browser and execute `shell.asp` file
 * The **Meterpreter** session will be opened and successfully gained access to the target system
 
-<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Confirm this with `sysinfo`
 
@@ -379,7 +375,7 @@ meterpreter > getuid
 Server username: NT AUTHORITY\SYSTEM
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 📌 No privilege escalation needed since the user is `NT AUTHORITY\SYSTEM`
 
@@ -430,15 +426,15 @@ cadaver http://10.4.18.218/webdav
 delete shell.asp
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption><p>shell.asp deleted</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>shell.asp deleted</p></figcaption></figure>
 
 ### metasploit - automatic <a href="#metasploit-automatic" id="metasploit-automatic"></a>
 
 * Use Metasploit [iis\_webdav\_upload\_asp](https://www.rapid7.com/db/modules/exploit/windows/iis/iis\_webdav\_upload\_asp/) module to get a `meterpreter` session on the target system.
 
-<figure><img src="../../../../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * _This exploit automatically deleted the `/webdav/metasploit.asp` payload_
 * Find the flag, running `meterpreter` commands
@@ -451,16 +447,10 @@ type flag.txt
 ```
 
 {% hint style="info" %}
-Metasploit will automatically delete the generated `metesploit.asp` payload
+Metasploit will automatically delete the generated `metasploit.asp` payload
 {% endhint %}
 
-<details>
-
-<summary>Flag</summary>
-
-`d3aff16a801b4b7d36b4da1094bee345`
-
-</details>
-
-
+{% hint style="success" %}
+Flag: `d3aff16a801b4b7d36b4da1094bee345`
+{% endhint %}
 
