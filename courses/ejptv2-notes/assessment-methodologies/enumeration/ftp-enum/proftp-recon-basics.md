@@ -130,9 +130,6 @@ sysadmin
 ```
 
 ```bash
-root@attackdefense:~# nmap --script ftp-brute --script-args userb=/root/users -p21 192.184.96.3 
-Starting Nmap 7.70 ( https://nmap.org ) at 2024-06-27 02:29 UTC
-
 root@attackdefense:~# nmap --script ftp-brute --script-args userdb=/root/users -p21 192.184.96.3 
 Starting Nmap 7.70 ( https://nmap.org ) at 2024-06-27 02:29 UTC
 Nmap scan report for target-1 (192.184.96.3)
