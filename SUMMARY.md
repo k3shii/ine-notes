@@ -56,3 +56,5 @@
         * [🔬Windows Credentials Dumping](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/windows-operating-system/windows-credentials-dumping.md)
       * [🐧 Linux Operating System](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system/README.md)
         * [🔬Bash](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system/bash.md)
+        * [🔬 FTP](https://app.gitbook.com/o/erINDgTXVh2ylWBxpoDg/s/OVa8OVKg2HE0a3ygHQE9/\~/changes/23/courses/ejptv2-notes/assessment-methodologies/enumeration/ftp-enum/proftp-recon-basics)
+        * [🔬SSH](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system/ssh.md)

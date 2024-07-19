@@ -54,13 +54,46 @@ layout:
 
 The exploitation can be done manually and automatically.
 
+### FTP <a href="#ftp" id="ftp"></a>
 
+🗒️ [**FTP**](https://en.wikipedia.org/wiki/File\_Transfer\_Protocol) (File Transfer Protocol) - facilitate file sharing between a server and clients. Used for transfering files to and from a web server (`e.g.` CPanel or FTP credentials).
 
+* Port: **`21`** (TCP) - default
+* _User Authentication_ - `username` & `password`
+  * _**anonymous**_ access may be configured on FTP - no credentials needed
 
+#### **FTP Exploitation**
 
+1. Credentials can be **brute-forced** on the FTP server
+2. Exploit inherent vulnerability within FTP service
 
+### SSH <a href="#ssh" id="ssh"></a>
 
+🗒️ [**SSH**](https://en.wikipedia.org/wiki/Secure\_Shell) (**S**ecure **Sh**ell) - cryptographic remote administration protocol, typically used for servers remote access
 
+* Port: **`22`** (TCP) - default
+* SSH Authentication:
+  * _User Authentication_ - `username` & `password`
+  * `Key` based, 2 key pairs (**public** and **private** keys) - no username and password
+
+#### **SSH Exploitation**
+
+1. Credentials can be **brute-forced** on the SSH
+2. With SSH legitimate credentials the attacker gain access to a full shell, with the utilized user account's privileges
+
+### SAMBA <a href="#samba" id="samba"></a>
+
+🗒️ [**SAMBA**](https://www.samba.org/samba/what\_is\_samba.html) - network file sharing protocol, for file and peripherals sharing on a LAN. It is the Linux implementation of SMB
+
+* Port: **`445`** (TCP).&#x20;
+* Port: `139` (Originally ran on top of NetBIOS )
+* Not pre-packed, not a common running service
+* _User Authentication_ - `username` & `password`
+
+#### **SAMBA Exploitation**
+
+1. Credentials can be **brute-forced**
+2. Use SMBMap or `smbclient` to retrieve information
 
 
 
