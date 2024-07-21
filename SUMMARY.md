@@ -60,3 +60,4 @@
         * [🔬SSH](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system/ssh.md)
         * [🔬 SAMBA](https://app.gitbook.com/o/erINDgTXVh2ylWBxpoDg/s/OVa8OVKg2HE0a3ygHQE9/\~/changes/24/courses/ejptv2-notes/assessment-methodologies/enumeration/smb-enum/samba-recon-dictionary-attack)
         * [🔬Cron Jobs](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system/cron-jobs.md)
+        * [🔬SUID](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system/suid.md)
