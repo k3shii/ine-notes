@@ -62,4 +62,6 @@
         * [🔬Cron Jobs](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system/cron-jobs.md)
         * [🔬SUID](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system/suid.md)
         * [🔬Hashes Dumping](courses/ejptv2-notes/host-and-networking-penetration-testing/system-host-based-attack/linux-operating-system/hashes-dumping.md)
-    * [Network-Based Attacks](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks.md)
+    * [Network-Based Attacks](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/README.md)
+      * [🔬Tshark](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/tshark.md)
+      * [🔬HTTP](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/http.md)
