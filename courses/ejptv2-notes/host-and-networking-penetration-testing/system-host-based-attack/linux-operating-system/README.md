@@ -95,7 +95,100 @@ The exploitation can be done manually and automatically.
 1. Credentials can be **brute-forced**
 2. Use SMBMap or `smbclient` to retrieve information
 
+***
 
+## Linux Privilege Escalation <a href="#linux-privilege-escalation" id="linux-privilege-escalation"></a>
+
+#### &#x20;<a href="#linux-kernel-exploits" id="linux-kernel-exploits"></a>
+
+### Linux Kernel Exploits <a href="#linux-kernel-exploits" id="linux-kernel-exploits"></a>
+
+> ❗ **Targeting Kernel can cause system crashes, data loss, kernel panics etc** ❗
+
+Linux kernel vulnerabilities can be targetted to execute arbitrary code and obtain privileged system shell.
+
+* Kernel version and distribution is important
+
+The **Linux Privilege Exploitation** process consists of:
+
+1. Identify kernel vulnerabilities (`Linux Exploit Suggester`)
+2. Download, compile, transfer kernel exploits onto the target system
+
+> [**Linux-Exploit-Suggester**](https://www.kali.org/tools/linux-exploit-suggester/) - a tool designed to assist in _detecting security deficiencies for given Linux kernel/Linux-based machine_.
+>
+> * Assessing kernel exposure on publicly known exploits
+> * Verifying state of kernel hardening security measures
+
+```bash
+wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O linux-exploit-suggester.sh
+
+chmod +x linux-exploit-suggester.sh
+
+./linux-exploit-suggester.sh
+```
+
+* Very useful to get Kernel version, possible Exploits with detailed information on the CVEs
+
+### Misconfigured Cron Jobs <a href="#misconfigured-cron-jobs" id="misconfigured-cron-jobs"></a>
+
+🗒️ **Cron** - a time-based daemon/service, scheduler of applications, scripts and commands. It executed non-interactive jobs.
+
+* _Tasks scheduled in `cron` are called_ **cron jobs**
+  * `e.g.` backups, o.s. upgrades, patches, scripts, commands etc
+* Default cron table/configuration file is **`/etc/crontab`**
+* Cron Jobs can be run as any user
+
+#### **Cron Jobs Privesc**
+
+* The attacker will target `root`'s privileged Cron Jobs
+* Find and identify cron jobs scheduled by the `root` user or the files processed by te cron job.
+
+### SUID Binaries <a href="#suid-binaries" id="suid-binaries"></a>
+
+🗒️ [**SUID**](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit) (**S**et owner **U**ser **ID**) - is a type of special access permission given to a file. A file with SUID _always executes as its the owner_, regardless of the user passing the command.
+
+* Allows unprivileged users to _run scripts or binaries_ with `root` permissions, and it's limited to the execution of that specific binary.
+* This is not privilege escalation, but can be used to obtain an elevated session
+  * `e.g.` the **`sudo`** binary
+
+
+
+The exploitation of SUID binaries to get privesc depends on:
+
+* the **owner** of the SUID file - `e.g.` look for `root` user's SUID binaries
+* **access permissions** - `x` executable permissions are required to execute the SUID binary
+
+***
+
+## Linux Credential Dumping <a href="#linux-credential-dumping" id="linux-credential-dumping"></a>
+
+All the Linux accounts' information is stored in the **`passwd`** file stored in `/etc/` directory.
+
+Linux has multi-user support, this can increase the overall risk of a server.
+
+```bash
+cat /etc/passwd
+```
+
+Passwords cannot be viewed because they are **encrypted** and stored in the **`shadow`** file in the `/etc/` directory.
+
+* 📌 Only `root` account can access `shadow` file
+
+```bash
+sudo cat /etc/shadow
+```
+
+### [Linux Password Hashes](https://www.baeldung.com/linux/shadow-passwords) <a href="#linux-password-hashes" id="linux-password-hashes"></a>
+
+The hashed password have a prefix `$id` value that indicates the type of **hashing algorithm** that is being used, `e.g.`:
+
+| Value | Hashing Algorithm                                                                              |
+| ----- | ---------------------------------------------------------------------------------------------- |
+| $1    | MD5 (easy to crack)                                                                            |
+| $2    | Blowfish (easy to crack)                                                                       |
+| $5    | SHA-256 (difficult to crack)                                                                   |
+| $6    | [SHA-512](https://www.baeldung.com/cs/md5-vs-sha-algorithms#1-security-1) (difficult to crack) |
+| $y    | [yescrypt](https://www.baeldung.com/linux/shadow-passwords)                                    |
 
 
 
