@@ -65,3 +65,5 @@
     * [Network-Based Attacks](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/README.md)
       * [🔬Tshark](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/tshark.md)
       * [🔬HTTP](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/http.md)
+      * [🔬ARP Poisoning](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/arp-poisoning.md)
+      * [🔬Traffic Analysis](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/traffic-analysis.md)
