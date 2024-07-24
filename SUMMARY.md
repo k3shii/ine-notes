@@ -67,3 +67,5 @@
       * [🔬HTTP](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/http.md)
       * [🔬ARP Poisoning](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/arp-poisoning.md)
       * [🔬Traffic Analysis](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/traffic-analysis.md)
+      * [🔬Traffic Filtering](courses/ejptv2-notes/host-and-networking-penetration-testing/network-based-attacks/traffic-filtering.md)
+    * [The Metasploit Framework (MSF)](courses/ejptv2-notes/host-and-networking-penetration-testing/the-metasploit-framework-msf.md)
