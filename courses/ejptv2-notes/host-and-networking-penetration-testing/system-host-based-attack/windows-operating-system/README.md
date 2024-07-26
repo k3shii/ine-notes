@@ -79,7 +79,7 @@ Windows has various standard native services and protocols configured or not on 
 davtest -url <url> [options]
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>davtest</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>davtest</p></figcaption></figure>
 
 > [**`cadaver`**](https://www.kali.org/tools/cadaver/) - supports file _upload, download, on-screen display, in-place editing, namespace operations (move/copy), collection creation and deletion, property manipulation, and resource locking_. Pre-installed on Kali Linux and Parrot OS.
 
@@ -87,7 +87,7 @@ davtest -url <url> [options]
 cadaver [OPTIONS] http://hostname[:port]/path
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>cadaver</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>cadaver</p></figcaption></figure>
 
 ### SMB <a href="#smb" id="smb"></a>
 
@@ -105,7 +105,7 @@ cadaver [OPTIONS] http://hostname[:port]/path
 
 #### **SMB Authentication**
 
-<figure><img src="../../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>SMB Authentication</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>SMB Authentication</p></figcaption></figure>
 
 1. Auth request from the client to the server
 2. The server request the client to encrypt string with user's hash
@@ -236,7 +236,7 @@ The **Windows Kernel Exploitation** process will be different, depending on the 
 
 > [**windows-kernel-exploits**](https://github.com/SecWiki/windows-kernel-exploits) - a Github collection of Windows Kernel Exploits sorted by CVE
 
-<figure><img src="../../../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UAC Bypass <a href="#uac-bypass" id="uac-bypass"></a>
 
@@ -253,13 +253,13 @@ UAC has _integrity levels_ ranging from Low to High.
 
 * The bypass tools depend on the Windows release and the UAC integrity level.
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>default integrity level</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>default integrity level</p></figcaption></figure>
 
 {% hint style="info" %}
 It is hard to bypass the UAC when the integrity level is high
 {% endhint %}
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Access Token Impersonation <a href="#access-token-impersonation" id="access-token-impersonation"></a>
 

