@@ -26,7 +26,7 @@
 wlan contains Home_Network
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. Which security mechanism is configured for SSID 'LazyArtists'? Your options are: OPEN, WPA-PSK, WPA2-PSK.
 
@@ -36,7 +36,7 @@ wlan contains Home_Network
 wlan contains LazyArtists
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 4. Is WiFi Protected Setup (WPS) enabled on SSID 'Amazon Wood'? State Yes or No.
 
@@ -46,7 +46,7 @@ wlan contains LazyArtists
 (wlan.ssid contains "Amazon") && (wlan.fc.type_subtype == 0x0008)
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 5. What is the total count of packets which were either transmitted or received by the device with MAC e8:de:27:16:87:18?
 
@@ -60,7 +60,7 @@ wlan contains LazyArtists
 (wlan.ta == ec:de:27:16:87:18) || (wlan.ra == ec:de:27:16:87:18)
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 6. What is the MAC address of the station which exchanged data packets with SSID 'SecurityTube\_Open'?
 
@@ -70,7 +70,7 @@ wlan contains LazyArtists
 (wlan.bssid== e8:de:27:16:87:18) && (wlan.fc.type_subtype == 0x0020)
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 7. From the last question, we know that a station was connected to SSID 'SecurityTube\_Open'. Provide TSF timestamp of the association response sent from the access point to this station.
 
@@ -81,5 +81,5 @@ wlan contains LazyArtists
 (wlan.fc.type_subtype == 0x0001)
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

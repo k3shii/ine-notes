@@ -12,11 +12,11 @@
 notepad text.txt
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (15) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (15) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Data store within the data stream
 
-<figure><img src="../../../../../.gitbook/assets/image (16) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Check the Resource Stream (metadata) of the file
 
@@ -24,11 +24,11 @@ notepad text.txt
 
 * We can hide a malicious payload within the resource stream, and whenever execute/open the file, we can specify that we want to execute the malicious payload
 
-<figure><img src="../../../../../.gitbook/assets/image (17) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (17) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Delete the file by using `del`&#x20;
 
-<figure><img src="../../../../../.gitbook/assets/image (18) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (18) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Hide the file within the `test.txt` with `secret.txt`
 
@@ -37,7 +37,7 @@ notepad test.txt:secret.txt
 # secret.txt contains the Resource Stream
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (19) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (19) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../../../.gitbook/assets/image (20) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

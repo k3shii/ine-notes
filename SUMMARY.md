@@ -73,4 +73,6 @@
       * [Vulnerability Scanning](courses/ejptv2-notes/host-and-networking-penetration-testing/the-metasploit-framework-msf/vulnerability-scanning.md)
       * [Client-Side Attacks](courses/ejptv2-notes/host-and-networking-penetration-testing/the-metasploit-framework-msf/client-side-attacks.md)
       * [Exploitation](courses/ejptv2-notes/host-and-networking-penetration-testing/the-metasploit-framework-msf/exploitation.md)
+      * [Post Exploitation](courses/ejptv2-notes/host-and-networking-penetration-testing/the-metasploit-framework-msf/post-exploitation/README.md)
+        * [Meterpreter - MSF](courses/ejptv2-notes/host-and-networking-penetration-testing/the-metasploit-framework-msf/post-exploitation/meterpreter-msf.md)
       * [Armitage](courses/ejptv2-notes/host-and-networking-penetration-testing/the-metasploit-framework-msf/armitage.md)
