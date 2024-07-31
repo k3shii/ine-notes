@@ -37,7 +37,7 @@ PS C:\Users\Administrator> nmap 10.0.26.0/20 --open
 
 > Go to This PC → Network → Right Click on Network → Map Network Drive
 
-<figure><img src="../../../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (46) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Type target machine IP address `“\10.0.18.177”` in Folder: field and hit `Browse`
 
@@ -51,7 +51,7 @@ PS C:\Users\Administrator> nmap 10.0.26.0/20 --open
   * Username: administrator
   * Password: smbserver\_771
 
-<figure><img src="../../../../../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (49) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Click “Ok”  will received all the shared folders from the target machine.&#x20;
 * Select any folder to create a network drive. In this case,  the “C:\” drive is selected of the target machine. Select the folder and click “Ok” → Finish
