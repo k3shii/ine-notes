@@ -26,17 +26,17 @@ Step 1:
 
 > Check for windows IP address by using ipconfig
 
-<figure><img src="../../../../../.gitbook/assets/image (36) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (36) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Step 2:
 
 > Run Zenmap scan against the subnet to discover the target machine’s IP address.
 
-<figure><img src="../../../../../.gitbook/assets/image (38) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (38) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 We have discovered 12 hosts using Zenmap. We can switch the tab to “ Services ” and we can observe that when we select the “Services” tab, it filters the output of all host machines by open ports.
 
-<figure><img src="../../../../../.gitbook/assets/image (39) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (39) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > Zenmap has discovered port 80 on only one host i.e 10.0.28.197.
 >
@@ -48,13 +48,13 @@ Step 4:
 
 > Select “ msrpc ” service and we can observe that two machines are exposed to RPC ports which is port `135`
 
-<figure><img src="../../../../../.gitbook/assets/image (43) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (43) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Step 5:
 
 > We can also plot the alive hosts diagram using Topology → Fisheye
 
-<figure><img src="../../../../../.gitbook/assets/image (41) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (41) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the plotted diagram we can see that the “Yellow” colored one is the machine i.e 10.0.25.204 where we have launched the scan (that is, the attacker machine) and it has plotted the other hosts connection with hostname and IP addresses to localhost.&#x20;
 

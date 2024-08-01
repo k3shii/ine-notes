@@ -67,7 +67,7 @@ Nmap done: 1 IP address (1 host up) scanned in 12.75 seconds
 
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (29) (1).png" alt=""><figcaption><p>nmap http-enum</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (29) (1) (1).png" alt=""><figcaption><p>nmap http-enum</p></figcaption></figure>
 
 > Running Header script to get the IIS server header information.
 

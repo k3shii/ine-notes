@@ -209,7 +209,7 @@ root@attackdefense:~# gvim output.txt
 
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (26) (1).png" alt=""><figcaption><p>sysuser</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (26) (1) (1).png" alt=""><figcaption><p>sysuser</p></figcaption></figure>
 
 > 6. Dump MSSQL users hashes
 

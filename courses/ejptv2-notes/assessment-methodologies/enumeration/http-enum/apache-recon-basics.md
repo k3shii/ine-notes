@@ -135,7 +135,7 @@ Answer: `Apache Ubuntu Default Page`
 root@INE:~# curl http://192.49.123.3
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (30) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (30) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -149,7 +149,7 @@ Answer: `Apache Ubuntu Default Page`
 root@INE:~# wget "http://192.49.123.3/index"
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (31) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (31) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 5. Check what web app is hosted on the web server using browsh CLI based browser.
 
@@ -159,7 +159,7 @@ Answer: `Apache Ubuntu Default Page`
 root@INE:~# browsh --startup-url 192.49.123.3
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (32) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (32) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -173,7 +173,7 @@ Answer: `Apache Ubuntu Default Page`
 root@INE:~# lynx http://192.49.123.3
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (34) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (34) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 7. Perform bruteforce on webserver directories and list the names of directories found. Use brute\_dirs metasploit module.
 
@@ -210,7 +210,7 @@ msf6 auxiliary(scanner/http/brute_dirs) > exploit
 [*] Auxiliary module execution completed
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (35) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (35) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 8. Use the directory buster (dirb) with tool/usr/share/metasploit-framework/data/wordlists/directory.txt dictionary to check if any directory is present in the root folder of the web server. List the names of found directories.
 
