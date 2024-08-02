@@ -78,3 +78,4 @@
         * [🔬 Windows Post Exploitation - MSF](courses/ejptv2-notes/host-and-networking-penetration-testing/the-metasploit-framework-msf/post-exploitation/windows-post-exploitation-msf.md)
         * [🔬 Linux Post Exploitation - MSF](courses/ejptv2-notes/host-and-networking-penetration-testing/the-metasploit-framework-msf/post-exploitation/linux-post-exploitation-msf.md)
       * [Armitage](courses/ejptv2-notes/host-and-networking-penetration-testing/the-metasploit-framework-msf/armitage.md)
+    * [Exploitation](courses/ejptv2-notes/host-and-networking-penetration-testing/exploitation.md)
