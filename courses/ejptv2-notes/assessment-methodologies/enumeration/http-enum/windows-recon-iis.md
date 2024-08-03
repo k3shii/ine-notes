@@ -255,9 +255,9 @@ pflag: help requested
 root@attackdefense:~# browsh --startup-url http://10.0.22.67/Default.aspx
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (27) (1) (1).png" alt=""><figcaption><p>Browsh</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (27) (1) (1) (1).png" alt=""><figcaption><p>Browsh</p></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (28) (1) (1).png" alt=""><figcaption><p>Normal Broswer</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (28) (1) (1) (1).png" alt=""><figcaption><p>Normal Broswer</p></figcaption></figure>
 
 📌 The target application is `WebGoat.net`
 

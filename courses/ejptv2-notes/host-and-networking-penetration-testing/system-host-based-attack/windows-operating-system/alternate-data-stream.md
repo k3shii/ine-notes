@@ -12,11 +12,11 @@
 notepad text.txt
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (15) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (15) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Data store within the data stream
 
-<figure><img src="../../../../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Check the Resource Stream (metadata) of the file
 
@@ -24,11 +24,11 @@ notepad text.txt
 
 * We can hide a malicious payload within the resource stream, and whenever execute/open the file, we can specify that we want to execute the malicious payload
 
-<figure><img src="../../../../../.gitbook/assets/image (17) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (17) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Delete the file by using `del`&#x20;
 
-<figure><img src="../../../../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Hide the file within the `test.txt` with `secret.txt`
 
@@ -37,9 +37,9 @@ notepad test.txt:secret.txt
 # secret.txt contains the Resource Stream
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (19) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (19) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/image (20) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (20) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 The content is disappear when try to open the `test.txt` file and the file size is `0 byte`
@@ -52,11 +52,11 @@ notepad test.txt
 # normal Data Stream
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (21) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (21) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * To open the hidden file
 
-<figure><img src="../../../../../.gitbook/assets/image (22) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (22) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 `e.g.` - Download latest [winPEASx64\_ofs.exe](https://github.com/carlospolop/PEASS-ng/releases/tag/20230312) (_Antivirus may block the file_), rename it to `payload.exe` and move it to `C:\Temp` directory
 
@@ -74,7 +74,7 @@ del payload.exe
 start windows_log.txt:winpeas.exe
 ```
 
-<figure><img src="../../../../../.gitbook/assets/image (23) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (23) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Open an elevated `cmd` and create a symbolic link
 
