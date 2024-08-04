@@ -15,11 +15,11 @@ tshark -r HTTP_traffic.pcap -Y 'http'
 tshark -r HTTP_traffic.pcap -Y 'http' | more
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. Command to show only the IP packets sent from IP address 192.168.252.128 to IP address 52.32.74.91?
 
-<figure><img src="../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. Command to print only packets containing GET requests?
 
@@ -27,7 +27,7 @@ tshark -r HTTP_traffic.pcap -Y 'http' | more
 tshark -r HTTP_traffic.pcap -Y "http.request.method==GET"
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 4. Command to print only packets only source IP and URL for all GET request packets?
 
@@ -35,7 +35,7 @@ tshark -r HTTP_traffic.pcap -Y "http.request.method==GET"
 tshark -r HTTP_traffic.pcap -Y "http.request.method==GET" -Tfields -e frame.time -e ip.src -e http.request.full_uri
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Set B
 

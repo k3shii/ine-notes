@@ -12,7 +12,7 @@
 tshark -r WiFi_traffic.pcap -Y "wlan"
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. Which command can be used only view the deauthentication packets?
 
@@ -20,7 +20,7 @@ tshark -r WiFi_traffic.pcap -Y "wlan"
 tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==0x000c"
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. Which command can be used to only display WPA handshake packets?
 
@@ -28,7 +28,7 @@ tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==0x000c"
 tshark -r WiFi_traffic.pcap -Y "eapol"
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 4. Which command can be used to only print the SSID and BSSID values for all beacon frames?
 
@@ -36,7 +36,7 @@ tshark -r WiFi_traffic.pcap -Y "eapol"
 tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==8" -Tfields -e wlan.ssid -e wlan.bssid
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (10) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
