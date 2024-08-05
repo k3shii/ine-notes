@@ -230,7 +230,7 @@ msf5 > use auxiliary/scanner/portscan/tcp
 msf5 > set RHOSTS 192.5.160.3
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (19) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (19) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 msf5 > search type:auxiliary name:ftp
@@ -239,7 +239,7 @@ msf5 > set RHOSTS 192.5.160.3
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **`auxiliary/scanner/ftp/ftp_login`**
 
@@ -253,9 +253,9 @@ msf5 > set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwor
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **`auxiliary/scanner/ftp/anonymous`**
 
@@ -266,7 +266,7 @@ msf5 > set RHOSTS 192.146.175.3
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### [**SMB/SAMBA**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration/smb-enum#lab-3)
 
@@ -281,7 +281,7 @@ msf5 > options
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **`auxiliary/scanner/smb/smb_enumusers`**
 
@@ -292,7 +292,7 @@ msf5 > info
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **`auxiliary/scanner/smb/smb_enumshares`**
 
@@ -304,7 +304,7 @@ msf5 > set ShowFiles true
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > [**`auxiliary/scanner/smb/smb_login`**](https://www.offsec.com/metasploit-unleashed/smb-login-check/)
 
@@ -317,9 +317,9 @@ msf5 > set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwor
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (10) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### [**HTTP**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration/http-enum#lab-3)
 
@@ -338,7 +338,7 @@ msf5 > show options
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (11) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > `auxiliary/scanner/http/http_header`
 
@@ -348,7 +348,7 @@ msf5 > options
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (12) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (12) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **`auxiliary/scanner/http/robots_txt`**
 
@@ -358,14 +358,14 @@ msf5 > options
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (17) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (17) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 curl http://192.106.226.3/data/
 curl http://192.106.226.3/secure/
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (19) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (19) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > `auxiliary/scanner/http/dir_scanner`
 
@@ -375,7 +375,7 @@ msf5 > options
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (13) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (13) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > `auxiliary/scanner/http/dir_listing`
 
@@ -386,7 +386,7 @@ msf5 > set PATH /data
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (14) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (14) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **`auxiliary/scanner/http/files_dir`**
 
@@ -396,9 +396,9 @@ msf5 > options
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (15) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (15) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (16) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (16) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Write and upload a file on the target server. If the file is already exists it will overwrite it.
 
@@ -413,11 +413,11 @@ msf5 > set FILEDATA "Welcome To AttackDefense"
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (20) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (20) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Use `wget` and download the `test.txt` file and verify it.
 
-<figure><img src="../../../../.gitbook/assets/image (21) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (21) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Use `DELETE` method and delete the text file
 
@@ -430,7 +430,7 @@ msf5 > set ACTION DELETE
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (22) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (22) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **`auxiliary/scanner/http/http_login`**
 
@@ -442,7 +442,7 @@ msf5 > set VERBOSE false
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (23) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (23) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **`auxiliary/scanner/http/apache_userdir_enum`**
 
@@ -454,7 +454,7 @@ msf5 > set VERBOSE false
 msf5 > run
 ```
 
-<figure><img src="../../../../.gitbook/assets/image (24) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (24) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### [**MYSQL**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration/mysql-enum)
 

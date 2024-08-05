@@ -82,3 +82,4 @@
       * [🔬Fixing Exploits - HFS](courses/ejptv2-notes/host-and-networking-penetration-testing/exploitation/fixing-exploits-hfs.md)
       * [🔬Win Workflow Platform - MS](courses/ejptv2-notes/host-and-networking-penetration-testing/exploitation/win-workflow-platform-ms.md)
       * [🔬Win Black Box Pentest](courses/ejptv2-notes/host-and-networking-penetration-testing/exploitation/win-black-box-pentest.md)
+      * [🔬Linux Black Box Pentest](courses/ejptv2-notes/host-and-networking-penetration-testing/exploitation/linux-black-box-pentest.md)
