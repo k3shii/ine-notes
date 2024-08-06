@@ -83,3 +83,5 @@
       * [🔬Win Workflow Platform - MS](courses/ejptv2-notes/host-and-networking-penetration-testing/exploitation/win-workflow-platform-ms.md)
       * [🔬Win Black Box Pentest](courses/ejptv2-notes/host-and-networking-penetration-testing/exploitation/win-black-box-pentest.md)
       * [🔬Linux Black Box Pentest](courses/ejptv2-notes/host-and-networking-penetration-testing/exploitation/linux-black-box-pentest.md)
+    * [Post Exploitation](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation.md)
+    * [Social Engineering](courses/ejptv2-notes/host-and-networking-penetration-testing/social-engineering.md)
