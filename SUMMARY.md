@@ -85,4 +85,5 @@
       * [🔬Linux Black Box Pentest](courses/ejptv2-notes/host-and-networking-penetration-testing/exploitation/linux-black-box-pentest.md)
     * [Post Exploitation](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/README.md)
       * [🔬Windows Post-Exploitation](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/windows-post-exploitation.md)
+      * [🔬Linux Post-Exploitation](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/linux-post-exploitation.md)
     * [Social Engineering](courses/ejptv2-notes/host-and-networking-penetration-testing/social-engineering.md)

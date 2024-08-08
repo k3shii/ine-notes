@@ -52,7 +52,7 @@
 
 🗒️ **Metasploit Framework Console** ([**MSFconsole**](https://www.offsec.com/metasploit-unleashed/msfconsole/)) - an all in one interface that provides with access to all the functionality of the MSF.
 
-<figure><img src="../../../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 🗒️ **Metasploit Framework Command Line Interface** ([**MSFcli**](https://www.offsec.com/metasploit-unleashed/msfcli/)) - a command line utility used to facilitate the creation of automation scripts that utilize Metasploit modules.
 
@@ -60,7 +60,7 @@
 
 🗒️ **Metasploit Community Edition GUI** - a web based GUI front-end of the MSF.
 
-<figure><img src="../../../../.gitbook/assets/image (17) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (17) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 🗒️ [**Armitage**](https://www.kali.org/tools/armitage/) - a free Java based GUI front-end cyber attack management tool for the MSF.
 
@@ -68,11 +68,11 @@
 * Recommends exploits
 * Exposes the advanced capabilities of the MSF
 
-<figure><img src="../../../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### [Architecture](https://www.offsec.com/metasploit-unleashed/metasploit-architecture/)
 
-<figure><img src="../../../../.gitbook/assets/image (19) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (19) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 🗒️ A **module** is the piece of code that can be utilized and executed by the MSF.
 
@@ -152,7 +152,7 @@ ls /usr/share/metasploit-framework
 >
 > 📌 **Reporting**
 
-<figure><img src="../../../../.gitbook/assets/image (20) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (20) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <table><thead><tr><th width="275" align="center">Pentesting Phase</th><th>MSF Implementation</th></tr></thead><tbody><tr><td align="center"><strong>Information Gathering &#x26; Enumeration</strong></td><td>Auxiliary Modules, <code>nmap</code> reports</td></tr><tr><td align="center"><strong>Vulnerability Scanning</strong></td><td>Auxiliary Modules, <code>nessus</code> reports</td></tr><tr><td align="center"><strong>Exploitation</strong></td><td>Exploit Modules &#x26; Payloads</td></tr><tr><td align="center"><strong>Post Exploitation</strong></td><td>Meterpreter</td></tr><tr><td align="center"><strong>Privilege Escalation</strong></td><td>Post Exploitation Modules, Meterpreter</td></tr><tr><td align="center"><strong>Maintaining Persistent Access</strong></td><td>Post Exploitation Modules, Persistence</td></tr></tbody></table>
 
