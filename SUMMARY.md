@@ -86,4 +86,8 @@
     * [Post Exploitation](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/README.md)
       * [🔬Windows Post-Exploitation](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/windows-post-exploitation.md)
       * [🔬Linux Post-Exploitation](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/linux-post-exploitation.md)
+      * [🔬Windows Privilege Escalation](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/windows-privilege-escalation.md)
+      * [🔬Linux Privilege Escalation](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/linux-privilege-escalation.md)
+      * [🔬Windows Persistence](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/windows-persistence.md)
+      * [🔬Linux Persistence](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/linux-persistence.md)
     * [Social Engineering](courses/ejptv2-notes/host-and-networking-penetration-testing/social-engineering.md)
