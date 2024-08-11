@@ -90,4 +90,6 @@
       * [🔬Linux Privilege Escalation](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/linux-privilege-escalation.md)
       * [🔬Windows Persistence](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/windows-persistence.md)
       * [🔬Linux Persistence](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/linux-persistence.md)
+      * [🔬Cracking Hashes](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/cracking-hashes.md)
+      * [🔬Pivoting](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/pivoting.md)
     * [Social Engineering](courses/ejptv2-notes/host-and-networking-penetration-testing/social-engineering.md)
