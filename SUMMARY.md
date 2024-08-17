@@ -93,3 +93,4 @@
       * [🔬Cracking Hashes](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/cracking-hashes.md)
       * [🔬Pivoting](courses/ejptv2-notes/host-and-networking-penetration-testing/post-exploitation/pivoting.md)
     * [Social Engineering](courses/ejptv2-notes/host-and-networking-penetration-testing/social-engineering.md)
+  * [3️⃣ Web Application Penetration Testing](courses/ejptv2-notes/web-application-penetration-testing.md)
